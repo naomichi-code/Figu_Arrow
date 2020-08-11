@@ -1,0 +1,2 @@
+class Arrow < ApplicationRecord
+end

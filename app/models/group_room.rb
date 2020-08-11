@@ -1,0 +1,2 @@
+class GroupRoom < ApplicationRecord
+end

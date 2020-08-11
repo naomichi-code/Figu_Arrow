@@ -1,0 +1,2 @@
+class Inquly < ApplicationRecord
+end
