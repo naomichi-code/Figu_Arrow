@@ -8,4 +8,19 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header
+      .container
+        .row
+          .col-sm-6
+            = link_to 'Figu Arrow', root_path,style: 'padding: 20px 60px;display: inline-block;border: solid'
+          .col-sm-6
+            Figu Arrowとは？
+    = render "layouts/navber"
+
+    .container
+      .row
+        = yield
+
+    %footer.row.bg-dark.text-white.font-weight-light{style:'font-size:0.8em;height: 150px;'}
+      .col-sm.my-auto.text-center ç naomichi shimota 2020
+

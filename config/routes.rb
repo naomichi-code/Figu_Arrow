@@ -2,14 +2,18 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #管理者
   devise_for :admins, controllers: {
-    sessions: 'admin/sessions',
+    sessions: 'admins/sessions',
     }
-  namespace :admin do
-    get 'top' => 'home#top', as: 'top'
+  namespace :admins do
+    get 'top' => 'homes#top', as: 'top'
     resources :inqulies, only: [:index, :show]
   end
   #ユーザー
-  devise_for :users
+  devise_for :users, controllers:{
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
 
   scope module: :users do
     resources :users do
@@ -22,9 +26,9 @@ Rails.application.routes.draw do
 
   #サービス全般
   scope module: :public do
-    root 'home#top'
-    get 'about' => 'home#about'
-    get 'search' => 'home#search'
+    root 'homes#top'
+    get 'about' => 'homes#about'
+    get 'search' => 'homes#search'
     resources :posts do
       resource :post_comments, only: [:create, :destroy]
       resource :arrows, only: [:create, :destroy] #いいね機能
@@ -34,6 +38,6 @@ Rails.application.routes.draw do
     resources :inqulies, only: [:create, :index, :show]
     resources :requirements, only: [:index]
     resources :group_chats, only: [:create]
-    get 'talk_room' => 'group_chats#index', as: 'index_group_chats'
+    get 'talk_rooms' => 'group_chats#index', as: 'index_group_chats'
   end
 end
