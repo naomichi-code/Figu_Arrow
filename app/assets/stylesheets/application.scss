@@ -1,2 +1,21 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+::placeholder{
+  font-size: 0.8em;
+}
+header{
+  background-color:#EEEEEE;
+  padding: 2em;
+}
+.nav-link{
+  border-left: solid 0.1em silver;
+}
+.nav-link:hover{
+  background-color:red;
+}
+.navbar{
+  padding-top:0;
+  padding-bottom: 0;
+  line-height: 3em;
+}

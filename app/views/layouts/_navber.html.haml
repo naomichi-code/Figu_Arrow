@@ -1,0 +1,64 @@
+/#管理者
+- if admin_signed_in?
+  %nav.navbar.navbar-expand-sm.navbar-dark.bg-dark
+    .collapse.navbar-collapse#navbarNAV
+      .container
+        %ul.navbar-nav{style: 'font-size:0.8em;'}
+          %li.nav-item.active
+            = link_to '投稿一覽', posts_path, class: 'nav-link'
+          %li.nav-item.active
+            = link_to 'トークルーム', index_group_chats_path, class:'nav-link'
+          %li.nav-item.active
+            = link_to 'ユーザー', index_group_chats_path, class:'nav-link'
+          %li.nav-item.active
+            = link_to '譲渡・交換', index_group_chats_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
+          %li.form-inline.ml-auto
+            = form_tag(search_path, method: :get) do
+              = text_field_tag "seach[content]", "", class: 'form-control-sm',style: 'width:30em;'
+              = submit_tag '検索', class: "btn btn-outline-light btn-sm mb-1 "
+          %li.nav-item.active
+            = link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: nav-link, style: 'border-right: solid 0.1em silver;'
+  /#ユーザーログイン
+- elsif user_signed_in?
+  %nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    .collapse.navbar-collapse#navbarNAV
+      .container
+        %ul.navbar-nav{style: 'font-size:0.8em;'}
+          %li.nav-item.active
+            = link_to '投稿一覽', posts_path, class: 'nav-link'
+          %li.nav-item.active
+            = link_to 'トークルーム', index_group_chats_path, class:'nav-link'
+          %li.nav-item.active
+            = link_to 'ジャンル', index_group_chats_path, class:'nav-link'
+          %li.nav-item.active
+            = link_to '譲渡・交換', index_group_chats_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
+          %li.form-inline.ml-auto
+            = form_tag(search_path, method: :get) do
+              = text_field_tag "seach[content]", "", class: 'form-control-sm', style: 'width:30em;'
+              = submit_tag '検索', class: "btn btn-outline-light btn-sm mb-1 "
+          %li.nav-item.active.ml-auto
+            = link_to 'マイページ', user_path(current_user), class: 'nav-link'
+          %li.nav-item.active
+            = link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link', style: 'border-right: solid 0.1em silver;'
+  /#ログイン前
+- else
+  %nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    .collapse.navbar-collapse#navbarNAV
+      .container
+        %ul.navbar-nav{style: 'font-size:0.8em;'}
+          %li.nav-item.active
+            = link_to '投稿一覽', posts_path, class: 'nav-link'
+          %li.nav-item.active
+            = link_to 'トークルーム', index_group_chats_path, class:'nav-link'
+          %li.nav-item.active
+            = link_to 'ジャンル', index_group_chats_path, class:'nav-link'
+          %li.nav-item.active
+            = link_to '譲渡・交換', index_group_chats_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
+          %li.form-inline.ml-auto
+            = form_tag(search_path, method: :get) do
+              = text_field_tag "seach[content]", "", class: 'form-control-sm' ,style: 'width:30em;'
+              = submit_tag '検索', class: "btn btn-outline-light btn-sm mb-1 "
+          %li.nav-item.active.ml-auto
+            = link_to '新規会員登録', new_user_registration_path, class: 'nav-link'
+          %li.nav-item.active
+            = link_to 'ログイン', new_user_session_path, class: 'nav-link', style: 'border-right: solid 0.1em silver;'
