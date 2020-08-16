@@ -13,14 +13,30 @@
         .row
           .col-sm-6
             = link_to 'Figu Arrow', root_path,style: 'padding: 20px 60px;display: inline-block;border: solid'
-          .col-sm-6
-            Figu Arrowとは？
-    = render "layouts/navber"
+          .col-sm-6.position-relative
+            - if request.path == "/"
+              Figu Arrowとは？
+            %span.position-absolute{style: 'font-size:0.8em;'}
+              本当の同志に出会える玩具レビューコミュニティ
+          -#ナビゲーションバー
+        .row
+          .col
+            = render "layouts/navber"
 
     .container
-      .row
-        = yield
 
-    %footer.row.bg-dark.text-white.font-weight-light{style:'font-size:0.8em;height: 150px;'}
-      .col-sm.my-auto.text-center ç naomichi shimota 2020
+      = yield
 
+    %footer.bg-dark.text-white.mt-5
+      .container
+        .row
+          .col-4.offset-5.my-auto.text-lowercase
+            %span.text-center{style: 'font-size:0.8em;'} ç naomichi shimota 2020
+          .col-2.ml-auto.mt-3{style: 'font-size:0.8em;'}
+            %ul.list-unstyled.text-white
+              %li
+                サイト概要
+              %li
+                お問い合わせ
+              %li
+                あああ
