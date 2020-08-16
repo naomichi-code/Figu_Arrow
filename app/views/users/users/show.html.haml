@@ -1,0 +1,29 @@
+.row
+  .col.offset-2
+    %h4.bg-light.d-inline #{@user.account_name}さんのマイページ
+.row.mt-5
+  .col{style:'height:200px'}
+  .col.text-center
+    - unless current_user == @user
+      = render "users/relationships/follow_btn", user: @user
+    - else
+      = link_to ' アカウント詳細へ', edit_user_path(@user.id), class: 'btn btn-info'
+
+
+.row.justify-content-md-center
+  .col-md-2.text-center
+    %p 投稿数
+  .col-md-2.text-center
+    %p フォロワー
+  .col-md-2.text-center
+    %p フォロー
+.row.justify-content-md-center
+  .col-md-2.text-center.border-left
+    %h4
+      0
+  .col-md-2.text-center.border-left
+    %h4
+      = link_to @user.follower.count, user_follows_path(@user.id),class: 'text-dark'
+  .col-md-2.text-center.border-left.border-right
+    %h4
+      = link_to @user.followed.count, user_followers_path(@user.id),class: 'text-dark'

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_134714) do
   create_table "groups", force: :cascade do |t|
     t.string "room_title"
     t.text "body"
-    t.string "thumbnail"
+    t.string "thumbnail_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_134714) do
   end
 
   create_table "item_photos", force: :cascade do |t|
-    t.string "item_photo"
+    t.string "photo_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -89,8 +89,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_134714) do
     t.string "title", null: false
     t.text "body", null: false
     t.text "requirement"
-    t.integer "user_id", null: false
-    t.integer "tag_id", null: false
+    t.integer "user_id"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,9 +100,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_134714) do
     t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -142,7 +138,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_134714) do
     t.string "address", null: false
     t.string "phone_number", null: false
     t.text "introduction"
-    t.string "image_icon"
+    t.string "image_icon_id"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
