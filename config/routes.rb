@@ -21,7 +21,6 @@ Rails.application.routes.draw do
       get 'follows' => 'relationships#follower', as: 'follows'
       get 'followers' => 'relationships#followed', as: 'followers'
     end
-    resources :chats, only:[:create]
   end
 
   #サービス全般
@@ -29,6 +28,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'about' => 'homes#about'
     get 'search' => 'homes#search'
+    resources :chats, only:[:create, :show]
     resources :posts do
       resource :post_comments, only: [:create, :destroy]
       resource :arrows, only: [:create, :destroy] #いいね機能
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:create, :index]
     resources :inqulies, only: [:create, :index, :show]
     resources :requirements, only: [:index]
-    resources :group_chats, only: [:create]
+    resources :group_chats, only: [:create, :show]
     get 'talk_rooms' => 'group_chats#index', as: 'index_group_chats'
   end
 end

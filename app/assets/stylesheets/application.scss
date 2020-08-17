@@ -33,3 +33,9 @@ header{
 .border-right {
   border-right: 2px solid silver !important;
 }
+//投稿ボタン
+#post-btn {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+}
