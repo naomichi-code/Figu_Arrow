@@ -1,20 +1,21 @@
-.col-sm-4.mx-auto.mt-5.shadow-lg.p-3.mb-5.bg-white.rounded
-  %h4.text-center ログイン画面
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-row.mt-4
-      .form-group.col-sm
-        = f.label :email, 'メールアドレス'
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'abc1234@example.com'
-    .form-row
-      .form-group.col-sm
-        = f.label :password, 'パスワード'
-        = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: "6文字以上の半角英数字を入力してください"
-        .form-check
-          - if devise_mapping.rememberable?
-            = f.check_box :remember_me, class: 'form-check-input'
-            = f.label :remember_me, 'ログインしたままにする', class: 'form-check-label', style: 'font-size:14px; color:gray'
-    .row
-      .actions.col-sm.text-center
-        = f.submit "ログイン", class: 'mt-1 btn btn-secondary btn-lg btn-block'
-    .text-center.mt-3
-      = render "users/shared/links"
+.container
+  .col-sm-4.mx-auto.mt-5.shadow-lg.p-3.mb-5.bg-white.rounded
+    %h4.text-center ログイン画面
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-row.mt-4
+        .form-group.col-sm
+          = f.label :email, 'メールアドレス'
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'abc1234@example.com'
+      .form-row
+        .form-group.col-sm
+          = f.label :password, 'パスワード'
+          = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: "6文字以上の半角英数字を入力してください"
+          .form-check
+            - if devise_mapping.rememberable?
+              = f.check_box :remember_me, class: 'form-check-input'
+              = f.label :remember_me, 'ログインしたままにする', class: 'form-check-label', style: 'font-size:14px; color:gray'
+      .row
+        .actions.col-sm.text-center
+          = f.submit "ログイン", class: 'mt-1 btn btn-secondary btn-lg btn-block'
+      .text-center.mt-3
+        = render "users/shared/links"
