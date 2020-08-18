@@ -12,7 +12,12 @@
       .container
         .row
           .col-sm-6
-            = link_to 'Figu Arrow', root_path,style: 'padding: 20px 60px;display: inline-block;border: solid'
+            - if admin_signed_in?
+              = link_to admins_top_path do
+                = image_tag 'figu_arrow_logo.png', size: "200x100"
+            - else
+              = link_to root_path do
+                = image_tag 'figu_arrow_logo.png', size: "350x250"
           .col-sm-6.position-relative
             - if request.path == "/"
               Figu Arrowとは？

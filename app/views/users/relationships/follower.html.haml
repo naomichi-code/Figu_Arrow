@@ -1,0 +1,5 @@
+%h2 Follow Users
+- if @users.count > 0
+  = render 'users/users/index', users: @users
+- else
+  %p ユーザーはいません

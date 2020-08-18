@@ -2,7 +2,7 @@ class Public::ChatsController < ApplicationController
     def show
     @user = User.find(params[:id])
     rooms = current_user.user_rooms.pluck(:room_id)#ユーザーテーブルから自分を含むルームをさがす
-    user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)#相ユーザーテーブルから相手のIDとルームID(自分のidを含む)を探す。
+    user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)#ユーザーテーブルから相手のIDとルームID(自分のidを含む)を探す。
 
     unless user_rooms.nil?#すでに両者を含んだルームは作られているか？
         @room = user_rooms.room

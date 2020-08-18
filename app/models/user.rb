@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed #フォローしている人[follower]の中から自分にフォローされている人[followed]を探す（自分がフォローしている人）取得
   has_many :follower_user, through: :followed, source: :follower #フォローされている人[followed]の中から自分をフォローしている人を[follower]探す（自分をフォローしている人）取得
 
+  validates :account_name, presence: true, length: {maximum: 10, minimum: 2}, uniqueness: true
+  validates :introduction, length: {maximum: 3000}
+
   #フォローする
   def follow(user_id)
     follower.create(followed_id: user_id)

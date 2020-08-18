@@ -1,15 +1,18 @@
 .container
-  %h3 #{@user.account_name}さんとのチャット
-
-  .message{style:"width: 400px;"}
-    - @chats.each do |chat|
-      - if chat.user_id == current_user.id
-        %p{style:"text-align: right;"}
-          = chat.message
-      - else
-        %p{style: "text-align: left;"}
-          = chat.message
-
-  = form_with model: @chat, data: {remote: true} do |f|
-    = f.text_field :message
-    = f.hidden_field :room_id
+  .row.bg-light.justify-content-center.p-5
+    %h3.bg-light.d-inline #{@user.account_name}さんのDMルーム
+    .col-10.bg-white.border-rad.border.border-dark.rounded.mt-5
+      .row.justify-content-center
+        .message.mt-5{style:"width: 400px;"}
+          - @chats.each do |chat|
+            - if chat.user_id == current_user.id
+              %p{style:"text-align: right;"}
+                = chat.message
+            - else
+              %p{style: "text-align: left;"}
+                = chat.message
+      .form-row.d-flex.justify-content-center
+        .form-group
+          = form_with model: @chat, data: {remote: true} do |f|
+            = f.text_field :message,class: 'form-control',size: '50'
+            = f.hidden_field :room_id

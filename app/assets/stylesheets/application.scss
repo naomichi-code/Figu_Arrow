@@ -1,5 +1,15 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+//*
+ul{
+  list-style: none;
+}
+a{
+  text-decoration:none;
+}
+a :hover{
+  text-decoration:none;
+}
 
 //heeader
 ::placeholder{
@@ -8,8 +18,10 @@
 header{
   background-color:#EEEEEE;
   padding: 2em 2em 1em 2em;
-  margin-bottom: 2em;
+
 }
+
+//navbar
 .nav-link{
   border-left: solid 0.1em silver;
 }
@@ -38,4 +50,12 @@ header{
   position: fixed;
   right: 5%;
   bottom: 5%;
+}
+
+//アップロードプレビュー
+img.thumb {
+  margin:0 5px 5px 0;
+  max-width:160px;
+  vertical-align:bottom;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
