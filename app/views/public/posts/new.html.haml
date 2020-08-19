@@ -1,0 +1,37 @@
+%p aaaaaaaaa
+%h3.text-center.p-5{style:'background-color:#EEEEEE;'} 新規投稿画面
+.container
+  = form_with(model: @post, local: true) do |f|
+    .row
+      .col-5.mx-auto
+        .row
+          画像投稿機能
+        .form-row.mt-3
+          .form-group.col
+            = f.label :title,'投稿タイトル'
+            = f.text_field :title,class: 'form-control'
+        .form-row.mt-3
+          .form-group
+          = f.fields_for :tags do |t|
+            = t.label :tags, 'ジャンルタグ'
+            .form-row
+              .col
+                = t.text_field :title_tag, class: 'form-control', placeholder: '登場作品タイトル名'
+              .col
+                = t.text_field :brand_tag, class: 'form-control', placeholder: '商品ブランド名'
+              .col
+                = t.text_field :chara_tag, class: 'form-control', placeholder: 'キャラクター名'
+        .form-row.mt-5
+          .form-group.col
+            = f.label :body,'自己満レビュー内容'
+            = f.text_area :body, class: 'form-control',style:'height: 200px'
+        .form-row.mt-5
+          .form-group.col-4
+            = f.select :status,{設定無し: 0, 譲渡可: 1, 交換可: 0}, { include_blank:'選択して下さい'},{class:'form-control'}
+        .form-row.mt-5
+          .form-group.col
+            = f.label :requirement,'譲渡・交換：条件内容'
+            = f.text_area :requirement ,class: 'form-control',style:'height: 300px'
+        .row
+          .col
+          = f.submit "投稿", class: 'mt-1 btn btn-secondary btn-lg btn-block'
