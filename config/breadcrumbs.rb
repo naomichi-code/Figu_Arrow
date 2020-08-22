@@ -6,6 +6,10 @@ crumb :root do
 crumb :mypage do |obj|
   link "#{obj.account_name}さんの部屋", user_path(obj)
  end
+
+ crumb :post do |obj|
+  link "投稿内容", post_path(obj)
+ end
 # crumb :projects do
 #   link "Projects", projects_path
 # end

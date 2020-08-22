@@ -31,13 +31,16 @@
           = link_to 'ジャンル', index_group_chats_path, class:'nav-link'
         %li.nav-item.active
           = link_to '譲渡・交換', index_group_chats_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
-        %li.form-inline
-          = form_tag(search_path, method: :get) do
-            = text_field_tag "seach[content]", "", class: 'form-control-sm ml-md-3', style: 'width:30em;'
-            = submit_tag '検索', class: "btn btn-outline-light btn-sm mb-1 "
+        %li.form-inline.ml-5
+          .form-group
+            = form_tag(search_path, method: :get) do
+              = text_field_tag 'search[content]','',class: 'form-control',style: 'width:300px;height:30px;'
+              = select_tag 'search[model]', options_for_select({ "ユーザー" => "user", "投稿" => "post", "商品ブランド" => "brand", "作品名" => "title", "キャラクター" => "chara" }),class: 'form-control',style: 'font-size:10px;'
+              = select_tag 'search[method]', options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }),class: 'form-control',style: 'font-size:10px;'
+              = submit_tag '検索',class: 'btn btn-sm btn-outline-light'
       %ul.navbar-nav.ml-auto{style: 'font-size:0.8em;'}
-        %li.nav-item.active.ml-auto
-          = link_to 'マイページ', user_path(current_user), class: 'nav-link'
+        %li.nav-item.active
+          = link_to '自分の部屋', user_path(current_user), class: 'nav-link'
         %li.nav-item.active
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link', style: 'border-right: solid 0.1em silver;'
   -#ログイン前
