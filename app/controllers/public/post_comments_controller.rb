@@ -8,12 +8,11 @@ class Public::PostCommentsController < ApplicationController
        @post_comments = PostComment.all
       flash[:success] = "Comment was successfully created."
     else
-      @post = Post.find(params[:id])
       @items = @post.item_photos
       @tags = @post.tags
       @user = @post.user
-      @post_comment = @post.post_comments
-      @post_comments = @post_comment.all
+      @post_comment = PostComment.new
+      @post_comments = @post.post_comments
       render 'public/posts/show'
     end
   end

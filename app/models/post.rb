@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   accepts_attachments_for :item_photos, attachment: :photo
   belongs_to :user
 
-  validates :title, presence: true,length: {maximum: 20, minimum: 1}
+  validates :title, presence: true,length: {maximum: 15, minimum: 1}
   validates :body, presence: true, length: {maximum: 300}
   validates :requirement, length: {maximum: 300}
 

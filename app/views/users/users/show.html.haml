@@ -36,9 +36,11 @@
     .col-md-2.text-center.border-left.border-right
       %h4
         = link_to @user.follower.count, user_followers_path(@user.id),class: 'text-dark'
-.container-fulid{style:'margin-top:100px;background-color:#EEEEEE;'}
-  .container
-    .row
-      .col.text-center
-        %h3.p-5  投稿リスト
+  .row
+    -#投稿ボタン
     = render 'layouts/post_btn'
+.container-fulid{style:'margin-top:100px;background-color:#EEEEEE;'}
+  .row
+    .col.text-center
+      %h3.p-5  投稿リスト
+=render 'public/posts/index', posts: @posts

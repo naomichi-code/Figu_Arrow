@@ -17,6 +17,11 @@ class Public::PostsController < ApplicationController
     @post_comments = @post.post_comments
   end
 
+  def index
+    @posts = Post.all.reverse_order
+
+  end
+
   def create
     post = current_user.posts.new(post_params)
     if post.save
@@ -27,6 +32,18 @@ class Public::PostsController < ApplicationController
     end
   end
 
+  def edit
+    @tags = @post.tags.all
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render 'edit'
+    end
+  end
+
   private
   #投稿をセット
   def set_post
@@ -34,7 +51,7 @@ class Public::PostsController < ApplicationController
   end
   #カレントユーザー以外をリダイレクト
   def screen_user
-    unless params[:id].to_i == current_user.id
+    unless @post.user_id == current_user.id
         redirect_to user_path(current_user)
     end
   end

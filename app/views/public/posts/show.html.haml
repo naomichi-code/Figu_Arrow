@@ -1,20 +1,21 @@
-%p aaaaaaaaa
 .container-fuild.text-center{style:'background-color:#EEEEEE;'}
   %h3 投稿レビュー画面
 .container.mt-5.py-5{style:'background-color:#EEEEEE;'}
   .row.justify-content-center
     .col-6
-      %h3= @post.title
-  .row.mt-5.justify-content-center
-    .col-lg-6{style: 'height:350px;'}
-      = attachment_image_tag(@items.find_by(id: 1), :photo, format: "png",size: '500x300', fallback: "no_image.jpg", class: ' shadow  mb-5 bg-white rounded')
+      -if current_user == @user
+        %h3.d-inline.mr-5= @post.title
+        = link_to '投稿を編集する', edit_post_path(@post),class: 'btn btn-sm btn-dark'
+      -else
+        %h3= @post.title
+
   .row.mt-2.justify-content-center
-    .col-lg-7
+    .col-lg-7.fotorama{data: {allowfullscreen: "true",nav: "thumbs"}}
       - @items.each do |item|
         = attachment_image_tag(item, :photo, format: "png",size: '100x100', fallback: "no_image.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
 
   .row.mt-2.justify-content-center
-    .col-6
+    .col-6.mt-5
       %p レビュー
       %div{style: 'height:38px;'}
         %span タグ：

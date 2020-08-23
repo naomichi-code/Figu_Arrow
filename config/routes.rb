@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       resource :arrows, only: [:create, :destroy] #いいね機能
       resources :item_photes, only: [:create, :update, :destroy]
     end
-    resources :tags, only: [:create, :index]
+    resources :tags, only: [:create, :index, :show]
     resources :inqulies, only: [:create, :index, :show]
     resources :requirements, only: [:index]
     resources :group_chats, only: [:create, :show]

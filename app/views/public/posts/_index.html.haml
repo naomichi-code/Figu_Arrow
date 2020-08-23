@@ -1,0 +1,20 @@
+.container.mt-5
+  .row
+    - posts.each do |post|
+      .col-2
+        .card
+          =link_to post_path(post) do
+            = attachment_image_tag(post.item_photos.first, :photo, :fill ,158,120,format: "png", fallback: "no_image.jpg",class: 'width:100%')
+
+          .card-body.position-relative
+            .card-title.mb-1
+              %p.mb-0= post.title
+            .card-text{style:'font-size: 2px;'}
+              = image_tag 'arrow.png', size: "20x20"
+              %span.text-muted="#{post.arrows.count}アロー"
+              - post.tags.each do |t|
+                %p.mb-0= t.brand_tag
+                %p.mb-0= t.title_tag
+                %span.mb-0= t.chara_tag
+                %span.position-absolute
+                  =link_to 'more', post_path(post),class: 'badge'
