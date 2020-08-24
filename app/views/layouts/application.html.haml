@@ -2,6 +2,8 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{ href: "https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css", rel: "stylesheet"}
+    %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"}
     %title FiguArrow
     = csrf_meta_tags
     = csp_meta_tag
@@ -18,15 +20,20 @@
             - else
               = link_to root_path do
                 = image_tag 'figu_arrow_logo.png', size: "350x250"
+
           .col-sm-6.position-relative
             - if request.path == "/"
-              Figu Arrowとは？
-            %span.position-absolute{style: 'font-size:0.8em;'}
+              =link_to about_path do
+                = image_tag 'about_figu_arrow.png', size: "400x200"
+            %span.mt-3.position-absolute{style: 'font-size:0.8em;'}
               本当の同志に出会える玩具レビューコミュニティ
           -#ナビゲーションバー
         .row
           .col
             = render "layouts/navber"
+        .row
+          %p#notice
+            = notice
 
 
 

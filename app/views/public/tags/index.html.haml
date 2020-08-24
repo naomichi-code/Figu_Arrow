@@ -1,0 +1,20 @@
+.container.mt-5
+  .row.justify-content-center.mt-5
+    .col-8
+      %h4 商品ブランド
+      .border.rounded{style:'background-color:#EEEEEE;'}
+        - @tags.each do |tag|
+          =link_to tag_path(tag.id) do
+            %span.badge.badge-danger=tag.brand_tag
+  .row.justify-content-center.mt-5
+    .col-8
+      %h4 作品タイトル
+      .border.rounded{style:'background-color:#EEEEEE;'}
+        - @tags.each do |tag|
+          %span.badge.badge-danger=tag.title_tag
+  .row.justify-content-center.mt-5
+    .col-8
+      %h4 キャラクター
+      .border.rounded{style:'background-color:#EEEEEE;'}
+        - @tags.each do |tag|
+          %span.badge.badge-danger=tag.chara_tag

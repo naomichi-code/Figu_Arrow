@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   attachment :image_icon
   has_many :posts
+  has_many :post_comments
   has_many :arrows
   has_many :comments
   has_many :user_rooms
@@ -20,7 +21,7 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower #フォローされている人[followed]の中から自分をフォローしている人を[follower]探す（自分をフォローしている人）取得
 
   validates :account_name, presence: true, length: {maximum: 10, minimum: 2}, uniqueness: true
-  validates :introduction, length: {maximum: 3000}
+  validates :introduction, length: {maximum: 500}
 
   #フォローする
   def follow(user_id)

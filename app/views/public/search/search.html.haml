@@ -1,0 +1,15 @@
+- if @model == 'user'
+  %h3.text-center.p-5{style:'background-color:#EEEEEE;'} ユーザー 検索結果 '#{@content}'
+  = render 'users/users/index', users: @records
+-elsif @model == 'post'
+  %h3.text-center.p-5{style:'background-color:#EEEEEE;'} 投稿 検索結果 '#{@content}'
+  = render 'public/posts/index', posts: @records
+-elsif @model == 'brand'
+  %h3.text-center.p-5{style:'background-color:#EEEEEE;'} 商品ブランド 検索結果 '#{@content}'
+  = render 'public/tags/index_tag', tags: @records
+-elsif @model == 'title'
+  %h3.text-center.p-5{style:'background-color:#EEEEEE;'} 作品名 検索結果 '#{@content}'
+  = render 'public/tags/index_tag', tags: @records
+-else @model == 'chara'
+  %h3.text-center.p-5{style:'background-color:#EEEEEE;'} キャラクター 検索結果 '#{@content}'
+  = render 'public/tags/index_tag', tags: @records

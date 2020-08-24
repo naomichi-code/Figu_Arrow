@@ -5,12 +5,22 @@ ul{
   list-style: none;
 }
 a{
+  color: black;
   text-decoration:none;
 }
 a :hover{
   text-decoration:none;
 }
+span{
+  font-size: 13px;
+}
+#notice {
+  color: green;
+}
 
+#error_explanation {
+  color: red;
+  }
 //heeader
 ::placeholder{
   font-size: 0.8em;
