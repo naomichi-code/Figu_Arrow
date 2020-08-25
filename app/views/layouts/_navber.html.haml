@@ -10,7 +10,7 @@
         %li.nav-item.active
           = link_to 'ユーザー', index_group_chats_path, class:'nav-link'
         %li.nav-item.active
-          = link_to '譲渡・交換', index_group_chats_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
+          = link_to '譲渡・交換', requirements_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
         %li.form-inline.ml-5
           .form-group
             = form_tag(search_path, method: :get) do
@@ -33,7 +33,7 @@
         %li.nav-item.active
           = link_to 'ジャンル', tags_path, class:'nav-link'
         %li.nav-item.active
-          = link_to '譲渡・交換', index_group_chats_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
+          = link_to '譲渡・交換', requirements_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
         %li.form-inline.ml-5
           .form-group
             = form_tag(search_path, method: :get) do
@@ -58,7 +58,7 @@
         %li.nav-item.active
           = link_to 'ジャンル', tags_path, class:'nav-link'
         %li.nav-item.active
-          = link_to '譲渡・交換', index_group_chats_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
+          = link_to '譲渡・交換', requirements_path, class:'nav-link', style: 'border-right: solid 0.1em silver;'
         %li.form-inline.ml-5.my-auto
           .form-group
             = form_tag(search_path, method: :get) do

@@ -12,7 +12,7 @@
             .card-text{style:'font-size: 2px;'}
               = image_tag 'arrow.png', size: "20x20"
               %span.text-muted="#{tag.post.arrows.count}アロー"
-              - tags.each do |t|
+              - tag.post.tags.each do |t|
                 %p.mb-0= t.brand_tag
                 %p.mb-0= t.title_tag
                 %span.mb-0= t.chara_tag

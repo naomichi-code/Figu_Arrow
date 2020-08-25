@@ -12,9 +12,6 @@ class Post < ApplicationRecord
   validates :requirement, length: {maximum: 300}
 
 
-
-
-
   def arrowed_by?(user)
     arrows.where(user_id: user.id).exists?
   end
