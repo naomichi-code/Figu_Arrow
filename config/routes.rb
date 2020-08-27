@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:create, :index, :show]
     resources :inqulies, only: [:create, :index, :show]
     resources :requirements, only: [:index]
-    resources :group_chats, only: [:create, :show]
-    get 'talk_rooms' => 'group_chats#index', as: 'index_group_chats'
+    resources :group_chats, only: [:create]
+    resources :groups, only: [:index, :new, :show,:create, :destroy]
   end
 end

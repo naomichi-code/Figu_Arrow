@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms
   has_many :chats
   has_many :group_rooms
+  has_many :group
   has_many :groups, through: :group_rooms
   has_many :group_chats
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #followerフォローする人を取得

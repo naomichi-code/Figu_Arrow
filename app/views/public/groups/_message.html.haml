@@ -1,0 +1,21 @@
+- chats.each do |chat|
+  - if chat.user_id == current_user.id
+    .row.border.pt-1{style: "text-align: left; background-color:#EEFFFF;"}
+      .col-2.text-center
+        .icon
+          =link_to user_path(chat.user_id) do
+            = attachment_image_tag(chat.user, :image_icon, :fill ,50,50,format: "png", fallback: "no_image.jpg",class: 'shadow-lg bg-white.rounded')
+        %span.ml-2=chat.user.account_name
+      .col.p-1
+        .text.mr-auto
+          %p= chat.message
+  - else
+    .row.border.pt-1{style: "text-align: left; background-color:#FFF;"}
+      .col-2.text-center
+        .icon
+          =link_to user_path(chat.user_id) do
+            = attachment_image_tag(chat.user, :image_icon, :fill ,50,50,format: "png", fallback: "no_image.jpg",class: 'shadow-lg bg-white.rounded')
+        %span.ml-2=chat.user.account_name
+      .col.p-1
+        .text.mr-auto
+          %p= chat.message

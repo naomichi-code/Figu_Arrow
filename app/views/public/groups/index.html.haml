@@ -1,0 +1,25 @@
+.container-fuild{style:'background-color:#EEEEEE;'}
+  .row.text-center
+    .col
+      %h3 トークルーム一覧
+.container.my-5
+  .row.justify-content-md-center
+    - @groups.each do |group|
+      .col-7
+        .card.mb-3.border.rounded.mt-2.pr-2{style:'background-color:#EEEEEE;height:160px;'}
+          .row
+            .col-md-4
+              =link_to group_path(group.id) do
+                = attachment_image_tag(group, :thumbnail, :fill ,170,160,format: "png", fallback: "no_image.jpg")
+            .col-md-7.body.p-2
+              %h5.d-inline.cord-title
+                =link_to group_path(group.id) do
+                  = group.room_title
+              %p.card-text.mt-3
+                = group.body.truncate(20)
+              %span
+                %strong参加人数#{group.users.count}人
+
+              %span
+                =link_to '削除する',group_path(group), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"
+  = render 'public/groups/group_btn'

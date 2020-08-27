@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: {maximum: 300}
   validates :requirement, length: {maximum: 300}
 
+  #enum status: { "設定なし" => 0, "譲渡可" => 1, "交換可" => 2}
 
   def arrowed_by?(user)
     arrows.where(user_id: user.id).exists?
