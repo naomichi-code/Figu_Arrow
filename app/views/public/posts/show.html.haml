@@ -1,14 +1,18 @@
 .container-fuild.text-center{style:'background-color:#EEEEEE;'}
   %h3 投稿レビュー画面
-.container.mt-5.py-5{style:'background-color:#EEEEEE;'}
+.container.mt-5.py-5.position-relative{style:'background-color:#EEEEEE;'}
   .row.justify-content-center
-    .col-6
+    .col-8.text-center
       -if current_user == @user
         %h3.d-inline.mr-5= @post.title
+        %span.text-muted.created-time= "投稿日:#{@post.created_at.strftime('%Y/%m/%d %H:%M')}"
+        %span.text-muted.updated-time= "更新日:#{@post.updated_at.strftime('%Y/%m/%d %H:%M')}"
         = link_to '投稿を編集する', edit_post_path(@post),class: 'btn btn-sm btn-dark'
+        = link_to '投稿を削除する',post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"
       -else
-        %h3= @post.title
-
+        %h3.d-inline= @post.title
+        %span.text-muted.created-time= "投稿日:#{@post.created_at.strftime('%Y/%m/%d %H:%M')}"
+        %span.text-muted.updated-time= "更新日:#{@post.updated_at.strftime('%Y/%m/%d %H:%M')}"
   .row.mt-2.justify-content-center
     .col-lg-7.fotorama{data: {allowfullscreen: "true",nav: "thumbs"}}
       - @items.each do |item|
@@ -71,6 +75,7 @@
           = link_to '自分の部屋へ', user_path(@user.id), class: 'btn btn-lg btn-info mt-2'
   .row.justify-content-center
     .col-6
+      = render 'layouts/errors', obj: @post_comment
       %p コメント欄
       %div{class: "comment_#{@post.id}"}
         = render 'public/posts/comment', post_comments: @post_comments

@@ -11,7 +11,7 @@ class Public::GroupsController < ApplicationController
   def show
       @group = Group.find(params[:id])
       group_room = GroupRoom.find_by(user_id: current_user.id, group_id: @group.id)
-      unless group_room.nil?#すでにカレントとグループを含んだルームは作られているか？
+      if group_room.nil?#すでにカレントとグループを含んだルームは作られているか？
         GroupRoom.create(user_id: current_user.id, group_id: @group.id)
         @chats = @group.group_chats
         @chat = GroupChat.new(group_id: @group.id )
@@ -22,8 +22,9 @@ class Public::GroupsController < ApplicationController
   end
   #新規ルーム作成
   def create
-    if group = Group.new(group_params)
-      group.save
+      group = Group.new(group_params)
+      group.master_id = current_user.id
+    if group.save
       GroupRoom.create(user_id: current_user.id,group_id: group.id)
       redirect_to group_path(group)
     else

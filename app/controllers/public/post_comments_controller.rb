@@ -5,7 +5,7 @@ class Public::PostCommentsController < ApplicationController
     @post_comment = @post.post_comments.new(post_comment_params)
     @post_comment.user_id =current_user.id
     if @post_comment.save
-       @post_comments = PostComment.all
+      @post_comments = @post.post_comments
       flash[:success] = "Comment was successfully created."
     else
       @items = @post.item_photos
@@ -18,9 +18,10 @@ class Public::PostCommentsController < ApplicationController
   end
   def destroy
     @post_comment = PostComment.find(params[:post_id])
+    @post = Post.find(@post_comment.post_id)
+    @post_comments = PostComment.where(post_id: @post_comment.post_id)
     @post_comment.destroy
-    @post = @post_comment.post
-    @post_comments = PostComment.all
+
   end
 
   private

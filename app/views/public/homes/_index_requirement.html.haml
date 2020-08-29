@@ -16,5 +16,9 @@
                 =t.chara_tag
               %p.card-text.mt-3
                 =give.requirement.truncate(20)
+                %br
+                %span.text-muted=give.updated_at.strftime('%Y/%m/%d %H:%M')
                 %span.position-absolute.badge.badge-dark
-                  =give.status
+
+                  = give.require_number
+

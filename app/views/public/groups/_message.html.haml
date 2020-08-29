@@ -9,6 +9,9 @@
       .col.p-1
         .text.mr-auto
           %p= chat.message
+        - if chat.user_id == current_user.id
+          .d-btn
+            =link_to '削除する',group_chat_path(chat.id), method: :delete, remote: true, data: { confirm: '本当に消しますか？' }, class: "badge badge-pill badge-danger"
   - else
     .row.border.pt-1{style: "text-align: left; background-color:#FFF;"}
       .col-2.text-center
@@ -19,3 +22,6 @@
       .col.p-1
         .text.mr-auto
           %p= chat.message
+        - if chat.user_id == current_user.id
+          .d-btn
+            =link_to '削除する',group_chat_path(chat.id), method: :delete, remote: true, data: { confirm: '本当に消しますか？' }, class: "badge badge-pill badge-danger"

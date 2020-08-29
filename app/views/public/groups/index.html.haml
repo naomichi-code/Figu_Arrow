@@ -1,3 +1,4 @@
+- breadcrumb :group
 .container-fuild{style:'background-color:#EEEEEE;'}
   .row.text-center
     .col
@@ -19,7 +20,9 @@
                 = group.body.truncate(20)
               %span
                 %strong参加人数#{group.users.count}人
-
-              %span
-                =link_to '削除する',group_path(group), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"
+              -if current_user.id == group.master_id
+                %span
+                  =link_to '削除する',group_path(group), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"
+              %span.text-muted
+                = "投稿日:#{group.created_at.strftime('%Y/%m/%d %H:%M')}"
   = render 'public/groups/group_btn'

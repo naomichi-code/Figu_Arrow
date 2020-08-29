@@ -14,6 +14,7 @@
                 =t.chara_tag
               %p.card-text.mt-3
                 =give.requirement.truncate(25)
+              %span.text-muted= "投稿日:#{give.created_at.strftime('%Y/%m/%d %H:%M')}"
   .col-4.border.ml-2
     %h4 交換可
     - @exchanges.each do |exc|
@@ -29,3 +30,4 @@
                 =t.chara_tag
               %p.card-text.mt-3
                 =exc.requirement.truncate(25)
+              %span.text-muted= "投稿日:#{exc.created_at.strftime('%Y/%m/%d %H:%M')}"

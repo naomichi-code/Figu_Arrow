@@ -1,7 +1,7 @@
 .row
   .col.text-center.mt-4.mb-4
     %h4 最近の投稿
-.row.justify-content-center
+.row{style: "margin-left:13%;"}
   - posts.each do |post|
     .col-5.mt-2
       .card{style: "width: 180px;"}
@@ -18,5 +18,7 @@
               %p.mb-0= t.brand_tag
               %p.mb-0= t.title_tag
               %span.mb-0= t.chara_tag
+              %br
+              %span.mb-0.text-muted= post.created_at.strftime('%Y/%m/%d %H:%M')
               %span.position-absolute
                 =link_to 'more', post_path(post),class: 'badge'

@@ -27,9 +27,18 @@ class Public::PostsController < ApplicationController
     if post.save
       redirect_to post_path(post)
     else
-
+      @post = Post.new
+      @post.item_photos.build
+      @tags = @post.tags.new
       render 'new'
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    user = post.user.id
+    post.destroy
+    redirect_to user_path(user)
   end
 
   def edit

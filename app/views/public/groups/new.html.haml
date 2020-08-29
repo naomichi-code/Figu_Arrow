@@ -1,10 +1,12 @@
+- breadcrumb :new_group
+.container-fuild{style:'background-color:#EEEEEE;height:50px'}
 .containetr
   .row.justify-content-center.my-5
     =form_with model: @group, local: true  do |f|
       .col-12.shadow-lg.p-3.mb-5.bg-white.rounded
         .row.text-center
           .col.mb-5
-            %h4ルーム作成
+            %h4トークルーム作成
         .form-row
           .form-group
             = f.label :thumbnail,'サムネ'

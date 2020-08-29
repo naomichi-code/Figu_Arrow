@@ -38,8 +38,9 @@
         .row
           %p#notice
             = notice
-
-
+    .container
+      .row
+        = breadcrumbs separator: " &rsaquo; ", class:'p-2'
 
     = yield
 
