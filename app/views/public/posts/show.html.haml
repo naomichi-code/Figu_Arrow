@@ -7,7 +7,7 @@
         %h3.d-inline.mr-5= @post.title
         %span.text-muted.created-time= "投稿日:#{@post.created_at.strftime('%Y/%m/%d %H:%M')}"
         %span.text-muted.updated-time= "更新日:#{@post.updated_at.strftime('%Y/%m/%d %H:%M')}"
-        = link_to '投稿を編集する', edit_post_path(@post),class: 'btn btn-sm btn-dark'
+        = link_to '投稿を編集する', edit_post_path(@post),data: {"turbolinks" => false},class: 'btn btn-sm btn-dark'
         = link_to '投稿を削除する',post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"
       -else
         %h3.d-inline= @post.title
