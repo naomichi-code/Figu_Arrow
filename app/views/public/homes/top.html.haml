@@ -1,0 +1,9 @@
+.container
+  .row.justify-content-center
+    .col-6
+      =render 'public/homes/index_post', posts: @posts
+    .col-6
+      =render 'public/homes/index_requirement', requirements: @requirements
+  .row
+    -#投稿ボタン
+    = render 'layouts/post_btn'

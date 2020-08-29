@@ -1,0 +1,47 @@
+- breadcrumb :mypage, @user
+%h3.text-center.p-5{style:'background-color:#EEEEEE;'} #{@user.account_name}さんの部屋
+.container
+  .row.mt-5{style:'height:300px'}
+    .col-4.text-center
+      .icon
+        = attachment_image_tag @user, :image_icon, format: "png",size: '200x200', fallback: "no_image.jpg",class:'shadow-lg mb-2 bg-white.rounded'
+      .col
+        -#フォローボタン
+        - unless current_user == @user
+          = render "users/relationships/follow_btn", user: @user
+        - else
+          = link_to ' アカウント詳細へ', edit_user_path(@user.id), class: 'btn btn-lg btn-info mt-2'
+
+    -#プロフィール
+    .col
+      %h5
+        プロフィール
+      .col-10.border.border-dark.rounded.mr-5.mt-3.p-2.shadow-lg.mb-2bg-white.rounded{style:'background-color:#FFF; height:200px;'}
+        = simple_format(@user.introduction)
+      .col
+  .row.justify-content-md-center.mt-5
+    .col-md-2.text-center
+      %p 投稿数
+    .col-md-2.text-center
+      %p フォロワー
+    .col-md-2.text-center
+      %p フォロー
+  .row.justify-content-md-center
+    .col-md-2.text-center.border-left
+      %h4
+        0
+    .col-md-2.text-center.border-left
+      %h4
+        = link_to @user.followed.count, user_follows_path(@user.id),class: 'text-dark'
+    .col-md-2.text-center.border-left.border-right
+      %h4
+        = link_to @user.follower.count, user_followers_path(@user.id),class: 'text-dark'
+  .row
+    -#投稿ボタン
+    = render 'layouts/post_btn'
+.container-fulid{style:'margin-top:100px;background-color:#EEEEEE;'}
+  .row
+    .col.text-center
+      %h3.p-5  投稿リスト
+.container.mt-5
+  =render 'public/posts/index', posts: @posts

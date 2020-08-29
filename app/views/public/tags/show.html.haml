@@ -1,0 +1,19 @@
+- breadcrumb :tags
+-if @colum == "brand"
+  .container-fuild{style:'background-color:#EEEEEE;'}
+    .row.text-center
+      .col
+        %h3="#{@brand[0].brand_tag}・一覧"
+  = render 'public/tags/index_tag', tags: @brand
+-if @colum == "title"
+  .container-fuild{style:'background-color:#EEEEEE;'}
+    .row.text-center
+      .col
+        %h3="#{@title[0].title_tag}・一覧"
+  = render 'public/tags/index_tag', tags: @title
+-if @colum == "chara"
+  .container-fuild{style:'background-color:#EEEEEE;'}
+    .row.text-center
+      .col
+        %h3="#{@chara[0].title_tag}・一覧"
+  = render 'public/tags/index_tag', tags: @chara

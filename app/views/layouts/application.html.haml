@@ -1,0 +1,60 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{ href: "https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css", rel: "stylesheet"}
+    %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"}
+    %title FiguArrow
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      .container
+        .row
+          .col-sm-6
+            - if admin_signed_in?
+              = link_to admins_top_path do
+                = image_tag 'figu_arrow_logo.png', size: "200x100"
+            - else
+              = link_to root_path do
+                = image_tag 'figu_arrow_logo.png', size: "350x250"
+            .row
+            - if request.path == "/"
+              .col
+                /.each do |item|>
+                / = attachment_image_tag(item, :photo, format: "png",size: '100x100', fallback: "no_image.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
+          .col-sm-6.position-relative
+            - if request.path == "/"
+              =link_to about_path do
+                = image_tag 'about_figu_arrow.png', size: "450x250",class: 'mb-4'
+            %span.mt-3.position-absolute{style: 'font-size:0.8em;'}
+              本当の同志に出会える玩具レビューコミュニティ
+          -#ナビゲーションバー
+        .row
+          .col
+            = render "layouts/navber"
+        .row
+          %p#notice
+            = notice
+    .container
+      .row
+        = breadcrumbs separator: " &rsaquo; ", class:'p-2'
+
+    = yield
+
+
+    %footer.bg-dark.text-white.mt-5
+      .container
+        .row
+          .col-4.offset-5.my-auto.text-lowercase
+            %span.text-center{style: 'font-size:0.8em;'} ç naomichi shimota 2020
+          .col-2.ml-auto.mt-3{style: 'font-size:0.8em;'}
+            %ul.list-unstyled.text-white
+              %li
+                = link_to"サイト概要",about_path,style: "color: white;"
+              %li
+                = link_to"お問い合わせ",about_path,style: "color: white;"
+              %li
+

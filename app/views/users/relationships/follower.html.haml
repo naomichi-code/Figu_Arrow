@@ -1,0 +1,7 @@
+- breadcrumb :followed, @user
+%h3.text-center.mb-5{style:'background-color:#EEEEEE;'}フォローされているユーザー
+.container
+  - if @users.count > 0
+    = render 'users/users/index', users: @users
+  - else
+    %p ユーザーはいません

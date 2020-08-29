@@ -1,0 +1,196 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+//*
+ul{
+  list-style: none;
+}
+a{
+  color: black;
+  text-decoration:none;
+}
+a :hover{
+  text-decoration:none;
+}
+span{
+  font-size: 13px;
+}
+#notice {
+  color: green;
+}
+
+#error_explanation {
+  color: red;
+  }
+//heeader
+::placeholder{
+  font-size: 0.8em;
+}
+header{
+  background-color:#EEEEEE;
+  padding: 2em 2em 1em 2em;
+
+}
+
+//navbar
+.nav-link{
+  border-left: solid 0.1em silver;
+}
+.nav-link:hover{
+  background-color:red;
+}
+.navbar{
+  margin: 0.5em 0;
+  padding:0;
+  line-height: 3em;
+}
+.position-absolute{
+  bottom: 0;
+  right: 1em;
+}
+
+//user_show
+.border-left {
+  border-left: 2px solid silver !important;
+}
+.border-right {
+  border-right: 2px solid silver !important;
+}
+//投稿ボタン
+#post-btn {
+  position: fixed;
+  right: 10%;
+  bottom: 5%;
+}
+//ルーム作成ボタン
+#room-btn {
+  position: fixed;
+  right: 25%;
+  top: 45%;
+}
+
+//アップロードプレビュー
+img.thumb {
+  margin:0 5px 5px 0;
+  max-width:160px;
+  vertical-align:bottom;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+//ここからabout
+.bg-about{
+  background-image: image-url("<%= asset_path('about_figu_arrow.png')%>");
+  height: 800px;
+  background-size:cover;
+  position: relative;
+}
+.about-content{
+  width:100%;
+  height:400px;
+  color:  white;
+  padding-top:150px;
+  text-align: center;
+  background-color: rgba( 0,0,0,0.6);
+  position: absolute;
+  top: 200px
+}
+
+//左吹き出し
+.balloon2-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  height: 100px;
+  min-width: 120px;
+  max-width: 60%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  box-sizing: border-box;
+  border-radius: 10px
+}
+
+.balloon2-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.balloon2-left:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+.balloon2-left p {
+  margin: 0;
+  padding: 0;
+}
+
+//右吹き出し
+.balloon2-right {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 7px 10px;
+  height: 100px;
+  min-width: 120px;
+  max-width: 60%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  box-sizing: border-box;
+  border-radius: 10px
+}
+
+.balloon2-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-left: 12px solid #FFF;
+  z-index: 2;
+}
+
+.balloon2-right:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-left: 14px solid #555;
+  z-index: 1;
+}
+
+.balloon2-right p {
+  margin: 0;
+  padding: 0;
+}
+
+//投稿show
+.created-time{
+  position: absolute;
+  top: -50%;
+  right: -15%;
+}
+.updated-time{
+  position: absolute;
+  top: -100%;
+  right: -15%;
+}

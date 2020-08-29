@@ -1,0 +1,8 @@
+-if post.arrowed_by?(current_user)
+  = link_to post_arrows_path(post), method: :delete, remote: true do
+    = image_tag 'arrow.png', size: "26x26"
+    %span.text-muted #{post.arrows.count} アロー
+-else
+  = link_to post_arrows_path(post), method: :post, remote: true do
+    = image_tag 'un_arrow.png', size: "18x18"
+    %span.text-muted #{post.arrows.count} アロー

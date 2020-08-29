@@ -1,0 +1,24 @@
+.row
+  .col.text-center.mt-4.mb-4
+    %h4 最近の投稿
+.row{style: "margin-left:13%;"}
+  - posts.each do |post|
+    .col-5.mt-2
+      .card{style: "width: 180px;"}
+        =link_to post_path(post), data: {"turbolinks" => false} do
+          = attachment_image_tag(post.item_photos.first, :photo, :fill ,180,150,format: "png", fallback: "no_image.jpg",class: 'width:100%')
+
+        .card-body.position-relative
+          .card-title.mb-1
+            %p.mb-0= post.title
+          .card-text{style:'font-size: 2px;'}
+            = image_tag 'arrow.png', size: "20x20"
+            %span.text-muted="#{post.arrows.count}アロー"
+            - post.tags.each do |t|
+              %p.mb-0= t.brand_tag
+              %p.mb-0= t.title_tag
+              %span.mb-0= t.chara_tag
+              %br
+              %span.mb-0.text-muted= post.created_at.strftime('%Y/%m/%d %H:%M')
+              %span.position-absolute
+                =link_to 'more', post_path(post),class: 'badge'
