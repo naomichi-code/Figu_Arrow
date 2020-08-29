@@ -7,7 +7,7 @@
         %p 現在の投稿画像
         .fotorama{data: {allowfullscreen: "true",nav: "thumbs"}}
           - @post.item_photos.each do |item|
-            = attachment_image_tag(item, :photo, format: "png",size: '80x80', fallback: "no_image.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
+            = attachment_image_tag(item, :photo, format: "png",size: '80x80', fallback: "no-image-icon.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
       .form-row.t-3
         .col
           = f.label :item_photos, '投稿画像（5枚まで）'

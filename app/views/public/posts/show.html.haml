@@ -16,7 +16,7 @@
   .row.mt-2.justify-content-center
     .col-lg-7.fotorama{data: {allowfullscreen: "true",nav: "thumbs"}}
       - @items.each do |item|
-        = attachment_image_tag(item, :photo, format: "png",size: '100x100', fallback: "no_image.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
+        = attachment_image_tag(item, :photo, format: "png",size: '100x100', fallback: "no-image-icon.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
 
   .row.mt-2.justify-content-center
     .col-6.mt-5
@@ -51,7 +51,7 @@
     .row.mt-5.bg-light.justify-content-center
       .col-md-3.text-center.my-auto{style: 'height:200px;'}
         %p 投稿者
-        = attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no_image.jpg",class:'shadow-lg mb-2 bg-white.rounded')
+        = attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded')
       .col-md-2.my-auto
         =link_to user_path(@user) do
           %h4 #{@user.account_name}さん
@@ -64,7 +64,7 @@
     .row.mt-5.bg-light.justify-content-center
       .col-md-3.text-center.my-auto{style: 'height:200px;'}
         %p 投稿者
-        = attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no_image.jpg",class:'shadow-lg mb-2 bg-white.rounded')
+        = attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded')
       .col-md-2.my-auto
         =link_to user_path(@user) do
           %h4 #{@user.account_name}さん

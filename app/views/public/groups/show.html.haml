@@ -7,7 +7,7 @@
 .container
   .row.mt-5.border.mx-auto.p-5{style:'width:60%;background-color:#EEEEEE;'}
     .col.text-center.pt-1
-      = attachment_image_tag @group, :thumbnail, format: "png",size: '250x200', fallback: "no_image.jpg",class:'shadow-lg mb-2 bg-white.rounded mr-auto'
+      = attachment_image_tag @group, :thumbnail, format: "png",size: '250x200', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded mr-auto'
     .col.border.bg-white
       %p.p-2
         =@group.body

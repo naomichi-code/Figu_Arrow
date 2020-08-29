@@ -11,7 +11,7 @@
           .row
             .col-md-4
               =link_to group_path(group.id) do
-                = attachment_image_tag(group, :thumbnail, :fill ,170,160,format: "png", fallback: "no_image.jpg")
+                = attachment_image_tag(group, :thumbnail, :fill ,170,160,format: "png", fallback: "no-image-icon.jpg")
             .col-md-7.body.p-2
               %h5.d-inline.cord-title
                 =link_to group_path(group.id) do
