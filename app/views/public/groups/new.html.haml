@@ -1,0 +1,20 @@
+- breadcrumb :new_group
+.container-fuild{style:'background-color:#EEEEEE;height:50px'}
+.containetr
+  .row.justify-content-center.my-5
+    =form_with model: @group, local: true  do |f|
+      .col-12.shadow-lg.p-3.mb-5.bg-white.rounded
+        .row.text-center
+          .col.mb-5
+            %h4トークルーム作成
+        .form-row
+          .form-group
+            = f.label :thumbnail,'サムネ'
+            %br
+            = f.attachment_field :thumbnail, class: 'mb-3'
+            %br
+            = f.label :title,'ルーム名'
+            = f.text_field :room_title, class: 'form-control mb-3'
+            = f.label :body,'本文'
+            = f.text_area :body, class: 'form-control'
+            = f.submit 'ルーム作成', class: 'btn btn-dark btn-block mt-3'

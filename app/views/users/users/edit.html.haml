@@ -1,8 +1,9 @@
+- breadcrumb :edit_mypage, @user
+%h3.text-center.p-5{style:'background-color:#EEEEEE;'} #{@user.account_name}さんのマイページ詳細
 .container
   = form_with(model: @user, local: true) do |f|
     .row
       .col.offset-1
-        %h3.bg-light.d-inline #{@user.account_name}さんのマイページ詳細
     .row.mt-5{style:'height:300px'}
       .col-4
         .row.justify-content-center

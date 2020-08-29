@@ -1,5 +1,9 @@
 .container
+  .row.justify-content-center
+    .col-6
+      =render 'public/homes/index_post', posts: @posts
+    .col-6
+      =render 'public/homes/index_requirement', requirements: @requirements
   .row
-    %h3.col-sm-12 こんにちは
-  .row
-    %h3.col-sm-12 こんばんは
+    -#投稿ボタン
+    = render 'layouts/post_btn'

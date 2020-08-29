@@ -1,2 +1,151 @@
 .container
-    %p aaaa
+  .row.bg-about
+    .about-content
+      %h1 Figu Arrow
+      %p 本当の同志に出会える玩具レビューコミュニティ
+.container
+  .row.mt-5.mb-5.text-center
+    .col
+      %h2 Figu Arrow（フィギュアロー）ってなに？
+  .row.justify-content-start
+    .col-3.text-center
+      = image_tag 'f-icon.png', size: "180x180",class: "rounded-circle border"
+      .name.mx-auto
+        F男
+    .col-4.balloon2-left.mt-5
+      .text
+        %p
+          今度、バ◯ダイから新作のフィギュアが出るらしいな！！絶対、買うぜ！！
+  .row.justify-content-end
+    .col-4.balloon2-right.mt-5
+      .text
+        %p
+          この前、あなた「置き場がない！！」って叫んでたじゃない、、、
+    .col-3.text-center
+      .icon
+        = image_tag 'A-icon2.png', size: "180x180",class: "rounded-circle border"
+      .name
+        A子
+  .row.justify-content-start
+    .col-3.text-center
+      = image_tag 'f-icon2.png', size: "180x180",class: "rounded-circle border"
+      .name
+        F男
+    .col-4.balloon2-left.mt-5
+      .text
+        %p
+          ぐぬぉおおおおおおおおお！！そうだったあああああああ！！どうすればいいんだ！！
+  .row.justify-content-end
+    .col-4.balloon2-right.mt-5
+      .text
+        %p
+          Figu Arrowをつかえばいいじゃない！
+    .col-3.text-center
+      .icon
+        = image_tag 'A-icon.png', size: "180x180",class: "rounded-circle border"
+      .name
+        A子
+  .row.justify-content-start
+    .col-3.text-center
+      = image_tag 'f-icon.png', size: "180x180",class: "rounded-circle border"
+      .name
+        F男
+    .col-4.balloon2-left.mt-5
+      .text
+        %p
+          ん、Figu Arrowなんだそれ？怪しいな
+  .row.justify-content-end
+    .col-4.balloon2-right.mt-5
+      .text
+        %p
+          ムチノバカモノメ
+    .col-3.text-center
+      .icon
+        = image_tag 'R-icon.png', size: "180x180",class: "rounded-circle border"
+      .name
+        ロボ
+  .row.justify-content-start
+    .col-3.text-center
+      = image_tag 'f-icon2.png', size: "180x180",class: "rounded-circle border"
+      .name
+        F男
+    .col-4.balloon2-left.mt-5
+      .text
+        %p
+          んだと、ごらぁああああああ！！このポンコツロボが！！
+  .row.justify-content-end
+    .col-4.balloon2-right.mt-5
+      .text
+        %p
+          ちょっと話聞きなさいよ、、、教えないわよ
+    .col-3.text-center
+      .icon
+        = image_tag 'A-icon2.png', size: "180x180",class: "rounded-circle border"
+      .name
+        A子
+  .row.justify-content-start
+    .col-3.text-center
+      = image_tag 'f-icon.png', size: "180x180",class: "rounded-circle border"
+      .name
+        F男
+    .col-4.balloon2-left.mt-5
+      .text
+        %p
+          すまねぇ、すまねぇ。早く教えてくれ！！
+  .row.justify-content-end
+    .col-4.balloon2-right.mt-5
+      .text
+        %p
+          仕方ないわね、教えてあげるわ！
+    .col-3.text-center
+      .icon
+        = image_tag 'A-icon.png', size: "180x180",class: "rounded-circle border"
+      .name
+        A子
+.container-fuild.p-5{style:'background-color:#EEEEEE;'}
+  .row.text-center.justify-content-center
+    .col-7
+      %h1
+        Figu Arrowとは
+      %p.mt-5
+        Figu Arrowでは本当の同志にであえる環境を提供します。「趣味は一緒だけど好きなキャラクターが違う」「新しい玩具が欲しいけど、置き場がない」
+        「欲しい玩具があるけど高くてかえない」「自分のディスプレイを見てほしい！」
+        玩具コレクターなら一度は経験している悩みではないでしょうか？
+        そういった悩みを持つ方をマッチングし解決、本当の共感を得られます。
+.container
+  .row.mb-5.mt-5
+    .col.text-center
+      %h1
+        Figu Arrowの使い方
+  .row
+    .col.text-center
+      = image_tag 'post.png', size: "180x180",class: "rounded-circle border"
+      %h3.title.mt-3
+        自己満投稿
+      %p.text
+        Fugu Arrowは本当の同志を見つける場です。本当に自分に共感した人とだけ出会う為には、他人は気にせず自分が思うままの自己満投稿をしましょう！！
+    .col.text-center
+      = image_tag 'match.png', size: "180x180",class: "rounded-circle border"
+      %h3.title.mt-3
+        同志との出会い
+      %p.text
+        あなたが「胸にぐっとくる」投稿があればすぐに、アローして共感を伝えましょう！！
+    .col.text-center
+      = image_tag 'change.png', size: "180x180",class: "rounded-circle border"
+      %h4.title.mt-3
+        コレクションの譲渡・交換
+      %p.text
+        欲しい物があるけど「置き場がない」「高くて変えない」「愛着があって捨てたくない。大切にしてくれる人にもらってほしい」そんな悩める方を、一覧で確認マッチング！
+-
+-unless user_signed_in?
+  .container-fuild.p-5{style:'background-color:#EEEEEE;'}
+    .container
+      .row.mb-5.mt-5
+        .col.text-center
+          %h1
+            今すぐ、始めよう！！
+      .row.justify-content-center
+        .col-4
+          = link_to '新規会員登録', new_user_registration_path, class: 'btn btn-success btn-lg btn-block',style:'height:50px;'
+        .col-4
+          = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary btn-lg btn-block',style:'height:50px;'

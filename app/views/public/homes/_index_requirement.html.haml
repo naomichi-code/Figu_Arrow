@@ -1,0 +1,24 @@
+.row
+  .col.text-center.mt-4.mb-4
+    %h4 交換・譲渡 最新
+.row.justify-content-center
+  .col-11.border
+    - requirements.each do |give|
+      .card.mb-3.border.rounded.mt-2{style:'background-color:#EEEEEE;'}
+        .row
+          .col-md-5
+            =link_to post_path(give) do
+              = attachment_image_tag(give.item_photos.first, :photo, :fill ,158,120,format: "png", fallback: "no_image.jpg")
+          .col-md-5.p-2
+            .body.position-relative
+            -give.tags.each do |t|
+              %h5.d-inline.cord-title
+                =t.chara_tag
+              %p.card-text.mt-3
+                =give.requirement.truncate(20)
+                %br
+                %span.text-muted=give.updated_at.strftime('%Y/%m/%d %H:%M')
+                %span.position-absolute.badge.badge-dark
+
+                  = give.require_number
+

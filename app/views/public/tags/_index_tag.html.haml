@@ -16,5 +16,6 @@
                 %p.mb-0= t.brand_tag
                 %p.mb-0= t.title_tag
                 %span.mb-0= t.chara_tag
+                %span.text-muted= tag.post.created_at.strftime('%Y/%m/%d %H:%M')
                 %span.position-absolute
                   =link_to 'more', post_path(tag.post.id),class: 'badge'

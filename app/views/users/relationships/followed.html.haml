@@ -1,5 +1,5 @@
-aaaaaaa
-%h3.text-center.mb-5{style:'background-color:#EEEEEE;'} フォローされているユーザー
+- breadcrumb :follower, @user
+%h3.text-center.mb-5{style:'background-color:#EEEEEE;'} フォローしているユーザー
 .container
   - if @users.count > 0
     = render 'users/users/index', users: @users

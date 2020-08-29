@@ -1,0 +1,23 @@
+- breadcrumb :show_group, @group
+.container-fuild{style:'background-color:#EEEEEE;'}
+  .row
+    .col.text-center
+      %h2
+        =@group.room_title
+.container
+  .row.mt-5.border.mx-auto.p-5{style:'width:60%;background-color:#EEEEEE;'}
+    .col.text-center.pt-1
+      = attachment_image_tag @group, :thumbnail, format: "png",size: '250x200', fallback: "no_image.jpg",class:'shadow-lg mb-2 bg-white.rounded mr-auto'
+    .col.border.bg-white
+      %p.p-2
+        =@group.body
+  .row.justify-content-center.mx-auto.p-2{style:'width:60%;background-color:#EEEEEE;'}
+    .col-10
+      .group-message.mt-5
+        =render 'public/groups/message', chats: @chats
+  .form-row.justify-content-center.mt-2.mx-auto{style:'width:60%;background-color:#EEEEEE;height:100px'}
+    .col-6.form-group.my-auto
+      メッセージ
+      = form_with model: @chat, data: {remote: true} do |f|
+        = f.text_field :message,class: 'form-control ',size: '50'
+        = f.hidden_field :group_id
