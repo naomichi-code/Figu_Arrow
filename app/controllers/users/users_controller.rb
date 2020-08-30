@@ -4,7 +4,7 @@ class Users::UsersController < ApplicationController
   before_action :screen_user, only: [:edit, :update]
 
   def show
-    @posts = @user.posts
+    @posts = @user.posts.reverse_order
   end
 
   def edit
