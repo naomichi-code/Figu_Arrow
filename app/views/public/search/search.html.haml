@@ -3,7 +3,8 @@
   = render 'users/users/index', users: @records
 -elsif @model == 'post'
   %h3.text-center.p-5{style:'background-color:#EEEEEE;'} 投稿 検索結果 '#{@content}'
-  = render 'public/posts/index', posts: @records
+  .container.mt-5
+    = render 'public/posts/index', posts: @records
 -elsif @model == 'brand'
   %h3.text-center.p-5{style:'background-color:#EEEEEE;'} 商品ブランド 検索結果 '#{@content}'
   = render 'public/tags/index_tag', tags: @records
