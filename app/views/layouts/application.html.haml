@@ -15,8 +15,8 @@
         .row
           .col-sm-6
             - if admin_signed_in?
-              = link_to admins_top_path do
-                = image_tag 'figu_arrow_logo.png', size: "200x100"
+              = link_to root_path do
+                = image_tag 'figu_arrow_logo.png', size: "350x250"
             - else
               = link_to root_path do
                 = image_tag 'figu_arrow_logo.png', size: "350x250"

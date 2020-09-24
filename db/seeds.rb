@@ -47,3 +47,9 @@ User.create!(
         password: "222222",
       }
     ])
+    #管理者
+    Admin.create!(
+      email: "abc@abc",
+      password:  "abcabc",
+      password_confirmation: "abcabc"
+  )
