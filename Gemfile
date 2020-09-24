@@ -70,6 +70,7 @@ gem "refile-mini_magick"
 gem 'pry-byebug'
 gem "gretel"
 gem 'kaminari'
+gem 'refile-s3'
 
 gem 'dotenv-rails'
 group :production do
