@@ -79,7 +79,7 @@ img.thumb {
 
 //ここからabout
 .bg-about{
-  background-image: image-url("<%= asset_path('about_figu_arrow.png')%>");
+  background-image: image-url('about_figu_arrow.png');
   height: 800px;
   background-size:cover;
   position: relative;
