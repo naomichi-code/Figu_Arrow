@@ -1,5 +1,7 @@
 .container
   .col-sm-4.mx-auto.mt-5.shadow-lg.p-3.mb-5.bg-white.rounded
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}", style: 'color: red' if msg.is_a?(String)
     %h4.text-center ログイン画面
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-row.mt-4

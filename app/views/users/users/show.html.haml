@@ -45,3 +45,5 @@
       %h3.p-5  投稿リスト
 .container.mt-5
   =render 'public/posts/index', posts: @posts
+  = paginate @posts
+

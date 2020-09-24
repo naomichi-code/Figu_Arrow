@@ -10,6 +10,11 @@ class Post < ApplicationRecord
   validates :title, presence: true,length: {maximum: 15, minimum: 1}
   validates :body, presence: true, length: {maximum: 300}
   validates :requirement, length: {maximum: 300}
+  MAX_ITEM_PHOTOS_COUNT = 5
+  validates :item_photos_photos, presence: true,length: {
+    maximum:  MAX_ITEM_PHOTOS_COUNT,
+    too_long: "Beyond the limit(Maximum number of posted photos is #{MAX_ITEM_PHOTOS_COUNT})"
+  }
 
   #enum status: { "設定なし" => 0, "譲渡可" => 1, "交換可" => 2}
 

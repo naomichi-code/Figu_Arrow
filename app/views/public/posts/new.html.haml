@@ -1,6 +1,7 @@
 %h3.text-center.p-5{style:'background-color:#EEEEEE;'} 新規投稿画面
 .container
   = form_with(model: @post, local: true) do |f|
+    = render 'layouts/errors', obj: @post
     .row
       .col-6.mx-auto.mt-5.shadow-lg.mb-2.bg-white.rounded
         .form-row
