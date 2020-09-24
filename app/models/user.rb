@@ -24,11 +24,9 @@ class User < ApplicationRecord
   validates :account_name, presence: true, length: {maximum: 10, minimum: 2}, uniqueness: true
   validates :introduction, length: {maximum: 500}
   validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :email, presence: true
-  validates :password, presence: true
-  validates :first_name_kana, presence: true
   validates :last_name_kana, presence: true
+  validates :first_name, presence: true
+  validates :first_name_kana, presence: true
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
