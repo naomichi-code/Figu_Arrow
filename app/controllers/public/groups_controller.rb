@@ -2,7 +2,7 @@ class Public::GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @groups = Group.all
+    @groups = Group.page(params[:page]).per(10).order(created_at: :desc)
   end
   def new
     @group = Group.new
@@ -28,7 +28,7 @@ class Public::GroupsController < ApplicationController
       GroupRoom.create(user_id: current_user.id,group_id: group.id)
       redirect_to group_path(group)
     else
-      @group = Group.new
+      @group = group
       render 'new'
     end
   end

@@ -4,7 +4,7 @@ class Users::UsersController < ApplicationController
   before_action :screen_user, only: [:edit, :update]
 
   def show
-    @posts = @user.posts.reverse_order
+    @posts = @user.posts.page(params[:page]).per(12).order(created_at: :desc)
   end
 
   def edit

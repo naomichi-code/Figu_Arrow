@@ -18,8 +18,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.reverse_order
-
+    @posts = Post.page(params[:page]).per(12).order(created_at: :desc)
   end
 
   def create
@@ -27,9 +26,9 @@ class Public::PostsController < ApplicationController
     if post.save
       redirect_to post_path(post)
     else
-      @post = Post.new
+      @post = post
       @post.item_photos.build
-      @tags = @post.tags.new
+      @tags = post.tags.new
       render 'new'
     end
   end

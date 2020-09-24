@@ -2,6 +2,7 @@
 %h3.text-center.p-5{style:'background-color:#EEEEEE;'} #{@user.account_name}さんのマイページ詳細
 .container
   = form_with(model: @user, local: true) do |f|
+    = render 'layouts/errors', obj: @user
     .row
       .col.offset-1
     .row.mt-5{style:'height:300px'}

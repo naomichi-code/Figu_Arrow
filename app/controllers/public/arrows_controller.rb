@@ -5,7 +5,7 @@ class Public::ArrowsController < ApplicationController
     @post = Post.find(params[:post_id])
     arrow = @post.arrows.new(user_id: current_user.id)
     arrow.save
-    
+
   end
 
   def destroy
