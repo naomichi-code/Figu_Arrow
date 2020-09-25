@@ -45,6 +45,14 @@
 ## 機能一覧
 [チャレンジ機能リスト](https://docs.google.com/spreadsheets/d/1eaHJllCCdWaSJI952Y0Sl6xS8kEBKsb1EhBgmzUY6qA/edit?usp=sharing)
 ## 使用技術
-[チャレンジ機能リスト](https://docs.google.com/spreadsheets/d/1eaHJllCCdWaSJI952Y0Sl6xS8kEBKsb1EhBgmzUY6qA/edit?usp=sharing)
+- ruby  2.5.7
+- rails 5.2.4
+- Bootstrap4
+- JavaScript (jQuery)
+-　AWS (EC2, RDS, S3, VPC, Route53,)
+- vagrnt/virtulBox
+- Nginx, Puma
+- Git, GitHub
+
 ## AWS構成図
 <img src="https://user-images.githubusercontent.com/64743218/94242371-e4d74080-ff50-11ea-8623-ce1a8c6f4406.jpg">
