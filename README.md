@@ -5,7 +5,7 @@
 本当の同志に出会えるコレクター向け玩具レビューコミュニティサイトです。
 <img src="https://user-images.githubusercontent.com/64743218/94236434-2dd6c700-ff48-11ea-8c41-5f745aedecb6.png" width="500px">
 ## サイトURL
-[Figu Arrow]http://52.199.225.63/
+[Figu Arrow](http://52.199.225.63/)
 ### サイトテーマ
 本当の同志に出会えるフィギュアコミニュティ、共感した人に熱い矢を打ち込もう！
 
