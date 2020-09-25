@@ -1,6 +1,6 @@
 # アプリ Figu Arrow
 Figu　Arrow（フィギュアロー）略称:フィギュアロ
-![Figu Arrowさんロゴ⑤](https://user-images.githubusercontent.com/64743218/94236097-9a04fb00-ff47-11ea-9970-f601d704a9cb.png)
+<img src="https://user-images.githubusercontent.com/64743218/94236097-9a04fb00-ff47-11ea-9970-f601d704a9cb.png" width="300px">
 ## サイト概要
 本当の同志に出会えるコレクター向け玩具レビューコミュニティサイトです。
 ### サイトテーマ
