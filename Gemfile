@@ -59,20 +59,26 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'
-gem 'bootstrap', '~> 4.3.1'
-gem 'jquery-rails'
-gem "haml-rails", "~> 2.0"
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
-gem 'pry-byebug'
-gem "gretel"
-gem 'kaminari'
-gem 'refile-s3'
+  gem 'devise'
+  gem 'bootstrap', '~> 4.3.1'
+  gem 'jquery-rails'
+  gem "haml-rails", "~> 2.0"
+  gem "refile", require: "refile/rails", github: 'manfe/refile'
+  gem "refile-mini_magick"
+  gem 'pry-byebug'
+  gem "gretel"
+  gem 'kaminari'
+  gem 'refile-s3'
 
-gem 'dotenv-rails'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
+
+  gem 'dotenv-rails'
+
 group :production do
   gem 'mysql2'
 end
