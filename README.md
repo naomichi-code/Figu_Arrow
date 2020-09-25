@@ -49,7 +49,7 @@
 - rails 5.2.4
 - Bootstrap4
 - JavaScript (jQuery)
--　AWS (EC2, RDS, S3, VPC, Route53,)
+-　AWS (EC2, RDS, S3, VPC)
 - vagrnt/virtulBox
 - Nginx, Puma
 - Git, GitHub
