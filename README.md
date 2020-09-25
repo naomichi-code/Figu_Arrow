@@ -45,4 +45,4 @@
 ### 機能一覧
 [チャレンジ機能リスト](https://docs.google.com/spreadsheets/d/1eaHJllCCdWaSJI952Y0Sl6xS8kEBKsb1EhBgmzUY6qA/edit?usp=sharing)
 ## AWS構成図
-<img scr="https://user-images.githubusercontent.com/64743218/94242371-e4d74080-ff50-11ea-8623-ce1a8c6f4406.jpg">
+<img src="https://user-images.githubusercontent.com/64743218/94242371-e4d74080-ff50-11ea-8623-ce1a8c6f4406.jpg">
