@@ -1,4 +1,4 @@
-# アプリ Figu Arrow(フィギュアロー)
+# アプリ名、Figu Arrow(フィギュアロー)
 <img src="https://user-images.githubusercontent.com/64743218/94236097-9a04fb00-ff47-11ea-9970-f601d704a9cb.png" width="500px">
 
 ## サイト概要
