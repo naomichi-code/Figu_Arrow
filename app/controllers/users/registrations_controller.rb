@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  before_action :check_guest, only: :destroy
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -38,12 +39,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-   protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:account_name, :last_name, :first_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone_number])
-   end
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:account_name, :last_name, :first_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone_number])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -53,13 +54,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     user_path(resource)
-   end
-  #def after_sign_up_path_for(resource)
-    #root_path
-  #end
+  end
 
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
+  end
+
 end

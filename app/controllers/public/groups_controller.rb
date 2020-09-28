@@ -12,7 +12,7 @@ class Public::GroupsController < ApplicationController
       @group = Group.find(params[:id])
       group_room = GroupRoom.find_by(user_id: current_user.id, group_id: @group.id)
       if group_room.nil?#すでにカレントとグループを含んだルームは作られているか？
-        GroupRoom.create(user_id: current_user.id, group_id: @group.id)
+        GroupRoom.create(user_id: current_user.id, group_id: @group.id)#なければグループに参加させる
         @chats = @group.group_chats
         @chat = GroupChat.new(group_id: @group.id )
       else

@@ -9,8 +9,8 @@
     .col.text-center.pt-1
       = attachment_image_tag @group, :thumbnail, format: "png",size: '250x200', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded mr-auto'
     .col.border.bg-white
-      %p.p-2
-        =@group.body
+      %p
+        =simple_format(@group.body)
   .row.justify-content-center.mx-auto.p-2{style:'width:60%;background-color:#EEEEEE;'}
     .col-10
       .group-message.mt-5

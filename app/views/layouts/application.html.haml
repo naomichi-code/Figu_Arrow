@@ -34,7 +34,12 @@
           -#ナビゲーションバー
         .row
           .col
-            = render "layouts/navber"
+            - if user_signed_in?
+              = render "layouts/navber"
+            -else
+              = render "layouts/navber"
+              .guest-btn.text-right
+                = link_to 'ゲストログイン', users_guest_sign_in_path, method: :POST, class: 'badge badge-pill badge-secondary'
         .row
           %p#notice
             = notice
