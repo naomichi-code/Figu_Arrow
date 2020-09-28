@@ -4,8 +4,7 @@
   .row.mt-5{style:'height:300px'}
     .col-4.text-center
       .icon
-        = attachment_image_tag @user, :image_icon, format: "png",size: '200x200', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded'
-      .col
+        = image_tag @image_icon_url
         -#フォローボタン
         - unless current_user == @user
           = render "users/relationships/follow_btn", user: @user
