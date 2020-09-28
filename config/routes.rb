@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+  devise_scope :user do
+    post 'users/guest_sign_in' => 'users/sessions#new_guest'
+  end
 
   scope module: :users do
     resources :users do

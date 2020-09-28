@@ -45,4 +45,22 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
+
+  #ゲストユーザーを探す、作成する
+  def self.guest
+    user = User.find_or_create_by!(
+      email: 'guest@example.com',
+      account_name: 'ゲストユーザー',
+      first_name: 'ゲスト',
+      last_name: 'ユーザー',
+      first_name_kana: 'げすと',
+      last_name_kana: 'ゆーざー',
+      postal_code: '123-1234',
+      address: 'guestadress',
+      phone_number: '12312341234'
+      ) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
 end
