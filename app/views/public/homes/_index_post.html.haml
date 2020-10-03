@@ -6,8 +6,8 @@
     .col-5.mt-2
       .card{style: "width: 180px;"}
         =link_to post_path(post), data: {"turbolinks" => false} do
-          - @photo = Settings.image_icon_url + post.item_photos.first.photo_id + "-thumbnail."
-          =image_tag @photo,size: '178x150',class: 'width:100%'
+          - photo = Settings.image_icon_url + post.item_photos.first.photo_id + "-thumbnail."
+          =image_tag photo,size: '178x150',class: 'width:100%'
 
         .card-body.position-relative
           .card-title.mb-1

@@ -8,8 +8,8 @@
         .row
           .col-md-5
             =link_to post_path(give),data: {"turbolinks" => false} do
-              - @photo = Settings.image_icon_url + give.item_photos.first.photo_id + "-thumbnail."
-              =image_tag @photo,size: '158x120'
+              - photo = Settings.image_icon_url + give.item_photos.first.photo_id + "-thumbnail."
+              =image_tag photo,size: '158x120'
               -#= attachment_image_tag(give.item_photos.first, :photo, :fill ,158,120,format: "png", fallback: "no-image-icon.jpg")
           .col-md-5.p-2
             .body.position-relative

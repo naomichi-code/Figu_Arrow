@@ -16,8 +16,8 @@
   .row.mt-2.justify-content-center
     .col-lg-7.fotorama{data: {allowfullscreen: "true",nav: "thumbs"}}
       - @items.each do |item|
-        - @photo = Settings.item_photo_url + item.photo_id
-        =image_tag @photo,size: '100x100', class: ' shadow  mb-5 bg-white rounded ml-3'
+        - photo = Settings.item_photo_url + item.photo_id
+        =image_tag photo,size: '100x100', class: ' shadow  mb-5 bg-white rounded ml-3'
         -#= attachment_image_tag(item, :photo, format: "png",size: '100x100', fallback: "no-image-icon.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
 
   .row.mt-2.justify-content-center

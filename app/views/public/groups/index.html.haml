@@ -11,8 +11,8 @@
           .row
             .col-md-4
               =link_to group_path(group.id) do
-                - @photo = Settings.image_icon_url + group.thumbnail_id + "-thumbnail."
-                =image_tag @photo,size: '170x158',class: 'width:100%'
+                - photo = Settings.image_icon_url + group.thumbnail_id + "-thumbnail."
+                =image_tag photo,size: '170x158',class: 'width:100%'
                 -#= attachment_image_tag(group, :thumbnail, :fill ,170,160,format: "png", fallback: "no-image-icon.jpg", size:"170x160")
             .col-md-7.body.p-2
               %h5.d-inline.cord-title
