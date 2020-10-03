@@ -5,16 +5,24 @@ class Users::UsersController < ApplicationController
 
   def show
     @posts = @user.posts.page(params[:page]).per(12).order(created_at: :desc)
-    @image_icon_url = "https://figu-arrow-s3-resize.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_icon_id + "-thumbnail."
+    if @user.image_icon.nil?
+      @image_icon_url = 'no-image-icon.jpg'
+    else
+      @image_icon_url = Settings.image_icon_url + @user.image_icon_id + "-thumbnail."
+    end
   end
 
   def edit
-
+    if @user.image_icon.nil?
+      @image_icon_url = 'no-image-icon.jpg'
+    else
+      @image_icon_url = Settings.image_icon_url + @user.image_icon_id + "-thumbnail."
+    end
   end
 
   def update
     if @user.update(user_params)
-      sleep(3)
+      sleep(10)
       redirect_to user_path(@user)
     else
         render 'edit'

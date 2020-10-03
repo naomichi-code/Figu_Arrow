@@ -3,8 +3,9 @@
     .col-2
       .card
         =link_to post_path(post),data: {"turbolinks" => false} do
-          = attachment_image_tag(post.item_photos.first, :photo, :fill ,155,120,format: "png", fallback: "no-image-icon.jpg",class: 'width:100%')
-
+          - @photo = Settings.image_icon_url + post.item_photos.first.photo_id + "-thumbnail."
+          =image_tag @photo,size: '155x120',class: 'width:100%'
+          -#= attachment_image_tag(post.item_photos.first, :photo, :fill ,155,120,format: "png", fallback: "no-image-icon.jpg",class: 'width:100%')
         .card-body.position-relative
           .card-title.mb-1
             %p.mb-0= post.title

@@ -16,7 +16,9 @@
   .row.mt-2.justify-content-center
     .col-lg-7.fotorama{data: {allowfullscreen: "true",nav: "thumbs"}}
       - @items.each do |item|
-        = attachment_image_tag(item, :photo, format: "png",size: '100x100', fallback: "no-image-icon.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
+        - @photo = Settings.item_photo_url + item.photo_id
+        =image_tag @photo,size: '100x100', class: ' shadow  mb-5 bg-white rounded ml-3'
+        -#= attachment_image_tag(item, :photo, format: "png",size: '100x100', fallback: "no-image-icon.jpg", class: ' shadow  mb-5 bg-white rounded ml-3')
 
   .row.mt-2.justify-content-center
     .col-6.mt-5
@@ -39,19 +41,22 @@
   -#譲渡機能
   .row.mt-5.justify-content-center
     .col-6
-      -if @post.status ==  1
+      -if @post.status ==  "譲渡可"
         %p　譲渡：条件
-        .border.border-dark.bg-light{style: 'height:200px;'}
+        .border.border-dark.bg-light.p-1{style: 'height:200px;'}
           = simple_format(@post.requirement)
-      -elsif @post.status == 2
+      -elsif @post.status == "交換可"
         %p　交換可：条件
-        .border.border-dark.bg-light{style: 'height:200px;'}
+        .border.border-dark.bg-light.p-1{style: 'height:200px;'}
           = simple_format(@post.requirement)
   -if current_user == @user
     .row.mt-5.bg-light.justify-content-center
       .col-md-3.text-center.my-auto{style: 'height:200px;'}
         %p 投稿者
-        = attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded')
+        = image_tag @image_icon_url,size:'100x100',class:'shadow-lg mb-2 bg-white.rounded'
+        -#-if Rails.env.production?
+        -#-else
+        -#= attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded')
       .col-md-2.my-auto
         =link_to user_path(@user) do
           %h4 #{@user.account_name}さん
