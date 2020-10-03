@@ -6,7 +6,7 @@
 各ユーザーが自分の部屋を持ち、複数枚画像を投稿することが可能です。投稿ページには譲渡・交換などが設定でき、交換や譲渡の条件を記載することで、条件の合う方とマッチングします。また、グループトークルームを作成することもでき、同じ好きなものについて語ったり、イベントなど企画して仲間を集めることができます。玩具に特化しているので、よりコアなところまで近い趣味の合う仲間に出会えるサイトとなっております。
 <img src="https://user-images.githubusercontent.com/64743218/94236434-2dd6c700-ff48-11ea-8c41-5f745aedecb6.png" width="500px">
 ### URL
-[Figu Arrow](http://http://figu-arrow.com/)
+[Figu Arrow](http://figu-arrow.com/)
 ### サイトテーマ
 本当の同志に出会えるフィギュアコミニュティ、共感した人に熱い矢を打ち込もう！
 
@@ -56,4 +56,4 @@
 - Git, GitHub
 
 ## AWS構成図
-<img src="(https://user-images.githubusercontent.com/64743218/94991394-dd9ddb80-05bd-11eb-9005-47de2f7d3f88.jpg">
+<img src="https://user-images.githubusercontent.com/64743218/94991394-dd9ddb80-05bd-11eb-9005-47de2f7d3f88.jpg">
