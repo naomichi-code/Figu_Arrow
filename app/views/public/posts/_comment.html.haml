@@ -3,7 +3,8 @@
     %tr
       %td{style: "width: 20%;"}
         = link_to user_path(post_comment.user)  do
-          = attachment_image_tag(post_comment.user, :image_icon, :fill, 50, 50, fallback: "no-image-icon.jpg", size: "50x50", class: ' border')
+          - photo = Settings.image_icon_url + post_comment.user.image_icon_id + '-thumbnail.'
+          =image_tag photo, size: '50x50',class: 'border'
           %br
         %span.ml-3{style:'font-size:2px;'}= post_comment.user.account_name
       %td

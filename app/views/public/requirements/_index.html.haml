@@ -6,8 +6,8 @@
         .row
           .col-md-4
             =link_to post_path(give),data: {"turbolinks" => false} do
-              - @photo = Settings.image_icon_url + give.item_photos.first.photo_id + "-thumbnail."
-              =image_tag @photo,size: '158x120'
+              - photo = Settings.image_icon_url + give.item_photos.first.photo_id + "-thumbnail."
+              =image_tag photo,size: '158x120'
               -#= attachment_image_tag(give.item_photos.first, :photo, :fill ,158,120,format: "png", fallback: "no-image-icon.jpg")
           .col-md-8
             .body
@@ -25,8 +25,8 @@
         .row
           .col-md-4
             =link_to post_path(exc),data: {"turbolinks" => false} do
-              - @photo = Settings.image_icon_url + exc.item_photos.first.photo_id + "-thumbnail."
-              =image_tag @photo,size: '158x120'
+              - photo = Settings.image_icon_url + exc.item_photos.first.photo_id + "-thumbnail."
+              =image_tag photo,size: '158x120'
               -#= attachment_image_tag(exc.item_photos.first, :photo, :fill ,158,120,format: "png", fallback: "no-image-icon.jpg")
           .col-md-8
             .body
