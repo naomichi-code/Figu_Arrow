@@ -71,6 +71,7 @@ end
   gem "gretel"
   gem 'kaminari'
   gem 'refile-s3'
+  gem 'pry-rails'
 
   gem 'capistrano'
   gem 'capistrano-rails'
@@ -78,7 +79,7 @@ end
   gem 'capistrano-rbenv'
 
   gem 'dotenv-rails'
-
+  gem 'config'
 group :production do
   gem 'mysql2'
 end

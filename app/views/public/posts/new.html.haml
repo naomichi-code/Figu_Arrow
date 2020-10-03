@@ -29,7 +29,7 @@
             = f.text_area :body, class: 'form-control',style:'height: 200px'
         .form-row.mt-5
           .form-group.col-5
-            = f.select :status, {"設定無し": 0, "譲渡可": 1, "交換可": 2}, {include_blank: "選択して下さい", :selected => ''  },{class:'form-control',required: true, style: 'font-size:15px'}
+            = f.select :status, Post.statuses.keys, {include_blank: "選択して下さい"},{class:'form-control',required: true, style: 'font-size:15px'}
         .form-row.mt-5
           .form-group.col
             = f.label :requirement,'譲渡・交換：条件内容'

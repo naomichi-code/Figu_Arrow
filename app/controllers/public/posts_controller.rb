@@ -15,10 +15,19 @@ class Public::PostsController < ApplicationController
     @user = @post.user
     @post_comment = PostComment.new
     @post_comments = @post.post_comments
+    if @user.image_icon.nil?
+      @image_icon_url = 'no-image-icon.jpg'
+    else
+      @image_icon_url = Settings.image_icon_url + @user.image_icon_id + "-thumbnail."
+    end
   end
 
   def index
     @posts = Post.page(params[:page]).per(12).order(created_at: :desc)
+    @posts.each do |post|
+      #@item_photos_url = "https://figu-arrow-s3-resize.s3-ap-northeast-1.amazonaws.com/store/" + post.item_photos_id.first + "-thumbnail."
+      @item_photos_url = post.item_photos.first
+    end
   end
 
   def create
@@ -46,6 +55,7 @@ class Public::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      sleep(3)
       redirect_to post_path(@post)
     else
       render 'edit'

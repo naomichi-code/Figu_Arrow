@@ -16,17 +16,17 @@ class Post < ApplicationRecord
     too_long: "Beyond the limit(Maximum number of posted photos is #{MAX_ITEM_PHOTOS_COUNT})"
   }
 
-  #enum status: { "設定なし" => 0, "譲渡可" => 1, "交換可" => 2}
+  enum status: { "設定なし" => 0, "譲渡可" => 1, "交換可" => 2}
 
-  def require_number
-    if self.status == 0
-      self.status = "設定なし"
-    elsif self.status == 1
-      self.status = "譲渡可"
-    else
-      self.status = "交換可"
-    end
-  end
+  #def require_number
+  # if self.status == 0
+      #self.status = "設定なし"
+    #lsif self.status == 1
+      #self.status = "譲渡可"
+    #else
+      #self.status = "交換可"
+    #end
+  #end
 
   def arrowed_by?(user)
     arrows.where(user_id: user.id).exists?

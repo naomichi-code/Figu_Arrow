@@ -1,0 +1,2 @@
+image_icon_url: <%= ENV['S3_BUCKET_RESIZE_URL'] %>
+item_photo_url: <%= ENV['S3_BUCKET_URL'] %>
