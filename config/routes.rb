@@ -41,6 +41,6 @@ Rails.application.routes.draw do
     resources :inqulies, only: [:create, :index, :show]
     resources :requirements, only: [:index]
     resources :group_chats, only: [:create, :destroy]
-    resources :groups, only: [:index, :new, :show,:create, :destroy]
+    resources :groups
   end
 end

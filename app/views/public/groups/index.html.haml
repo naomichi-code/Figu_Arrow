@@ -24,7 +24,9 @@
                 %strong参加人数#{group.users.count}人
               -if current_user.id == group.master_id
                 %span
-                  =link_to '削除する',group_path(group), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"
-              %span.text-muted
-                = "投稿日:#{group.created_at.strftime('%Y/%m/%d %H:%M')}"
+                  =link_to '編集',edit_group_path(group), class: "btn-sm btn-dark"
+                %span
+                  =link_to '削除',group_path(group), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"
+                %span.text-muted
+                  = "投稿日:#{group.created_at.strftime('%Y/%m/%d %H:%M')}"
   = render 'public/groups/group_btn'
