@@ -39,7 +39,7 @@ class Public::GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-    sleep(3)
+    sleep(5)
       redirect_to group_path(@group)
     else
       render 'edit'
@@ -55,7 +55,7 @@ class Public::GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
-  
+
   def screen_user
       group = Group.find(params[:id])
     unless group.master_id == current_user.id
