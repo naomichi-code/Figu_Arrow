@@ -27,7 +27,7 @@ class Public::GroupsController < ApplicationController
       group.master_id = current_user.id
       if group.save
         GroupRoom.create(user_id: current_user.id,group_id: group.id)
-        sleep(3)
+        sleep(5)
       redirect_to group_path(group)
     else
       @group = group
@@ -40,7 +40,7 @@ class Public::GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-    sleep(3)
+    sleep(5)
       redirect_to group_path(@group)
     else
       render 'edit'
