@@ -69,8 +69,9 @@ class Public::PostsController < ApplicationController
   end
   #カレントユーザー以外をリダイレクト
   def screen_user
+    @post = Post.find(params[:id])
     unless @post.user_id == current_user.id
-        redirect_to user_path(current_user)
+        redirect_to posts_path
     end
   end
 

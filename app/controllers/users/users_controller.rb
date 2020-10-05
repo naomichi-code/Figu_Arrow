@@ -22,7 +22,7 @@ class Users::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      sleep(10)
+      sleep(3)
       redirect_to user_path(@user)
     else
         render 'edit'
