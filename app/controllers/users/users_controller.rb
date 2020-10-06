@@ -1,5 +1,6 @@
 class Users::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_admin!
   before_action :set_user, only:[:show, :edit, :update, :destroy,:followings,:followers]
   before_action :screen_user, only: [:edit, :update]
 
@@ -27,6 +28,11 @@ class Users::UsersController < ApplicationController
     else
         render 'edit'
     end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to users_path
   end
 
   def following
@@ -59,7 +65,7 @@ class Users::UsersController < ApplicationController
     )
   end
   def screen_user
-    unless params[:id].to_i == current_user.id
+    unless params[:id].to_i == current_user.id || admin_signed_in?
         redirect_to user_path(current_user)
     end
   end
