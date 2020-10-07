@@ -1,6 +1,5 @@
 class Users::UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :authenticate_admin!
+  before_action :authenticate_user!,unless: :admin_signed_in?
   before_action :set_user, only:[:show, :edit, :update, :destroy,:followings,:followers]
   before_action :screen_user, only: [:edit, :update]
 
@@ -65,7 +64,7 @@ class Users::UsersController < ApplicationController
     )
   end
   def screen_user
-    unless params[:id].to_i == current_user.id || admin_signed_in?
+    unless params[:id].to_i == current_user.id
         redirect_to user_path(current_user)
     end
   end

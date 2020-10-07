@@ -7,7 +7,7 @@
         = image_tag @image_icon_url,size:'200',class:'shadow-lg mb-2 bg-white.rounded'
       .col
         -#フォローボタン
-        - unless current_user == @user
+        - unless (current_user == @user) || admin_signed_in?
           = render "users/relationships/follow_btn", user: @user
         - else
           = link_to ' アカウント詳細へ', edit_user_path(@user.id), class: 'btn btn-lg btn-info mt-2'

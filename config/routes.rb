@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     }
   namespace :admins do
     get 'top' => 'homes#top', as: 'top'
-    resources :users,only: [:index, :destroy]
+    resources :users
+    resources :posts,only: [:index, :destroy]
     resources :inqulies, only: [:index, :show]
   end
   #ユーザー

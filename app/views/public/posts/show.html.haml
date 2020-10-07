@@ -33,8 +33,9 @@
           %span.badge.badge-pill.badge-secondary
             = item.chara_tag
           -#アロー機能
-          %span#arrow
-            = render 'public/posts/arrow', post: @post
+          - unless admin_signed_in?
+            %span#arrow
+              = render 'public/posts/arrow', post: @post
 
       .border.border-dark.bg-light.p-1{style: 'height:200px;'}
         = simple_format(@post.body)
@@ -49,7 +50,17 @@
         %p　交換可：条件
         .border.border-dark.bg-light.p-1{style: 'height:200px;'}
           = simple_format(@post.requirement)
-  -if current_user == @user
+  -if admin_signed_in?
+    .row.mt-5.bg-light.justify-content-center
+      .col-md-3.text-center.my-auto{style: 'height:200px;'}
+        %p 投稿者
+        = image_tag @image_icon_url,size:'100x100',class:'shadow-lg mb-2 bg-white.rounded'
+      .col-md-2.my-auto
+        =link_to user_path(@user) do
+          %h4 #{@user.account_name}さん
+      .col-md-3.text-center.my-auto
+        = link_to 'ユーザーの部屋へ', user_path(@user.id), class: 'btn btn-lg btn-info mt-2'
+  -else
     .row.mt-5.bg-light.justify-content-center
       .col-md-3.text-center.my-auto{style: 'height:200px;'}
         %p 投稿者
@@ -57,19 +68,6 @@
         -#-if Rails.env.production?
         -#-else
         -#= attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded')
-      .col-md-2.my-auto
-        =link_to user_path(@user) do
-          %h4 #{@user.account_name}さん
-      .col-md-3.text-center.my-auto
-        - unless current_user == @user
-          = render "users/relationships/follow_btn", user: @user
-        - else
-          = link_to '自分の部屋へ', user_path(@user.id), class: 'btn btn-lg btn-info mt-2'
-  -else
-    .row.mt-5.bg-light.justify-content-center
-      .col-md-3.text-center.my-auto{style: 'height:200px;'}
-        %p 投稿者
-        = attachment_image_tag(@user, :image_icon, format: "png",size: '100x100', fallback: "no-image-icon.jpg",class:'shadow-lg mb-2 bg-white.rounded')
       .col-md-2.my-auto
         =link_to user_path(@user) do
           %h4 #{@user.account_name}さん
