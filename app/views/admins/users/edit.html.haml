@@ -1,0 +1,52 @@
+.container
+  = form_with(model: @user, url: admins_user_path(@user.id) , local: true) do |f|
+    .form-row.justify-content-center.my-5
+      .col-6
+        %h3.mt-3.text-light.bg-secondary.d-inline-block
+          アカウント詳細画面 #{@user.account_name}様のマイページ詳細
+    .form-row.justify-content-center
+      .col-5
+        .form-row.mt-4
+          .form-group.col
+            = f.label :account_name,'アカウント名'
+            = f.text_field :account_name, autofocus: true, class: 'form-control'
+            /氏名
+        %p.mb-1 氏名
+        .form-row
+          .form-group.col-sm
+            = f.text_field :last_name, placeholder: '姓', class: 'form-control'
+          .form-group.col-sm
+            = f.text_field :first_name, placeholder: '名', class: 'form-control'
+        %p.mb-1 氏名(カナ)
+        .form-row
+          .form-group.col-sm
+            = f.text_field :last_name_kana, placeholder: 'セイ', class: 'form-control'
+          .form-group.col-sm
+            = f.text_field :first_name_kana, placeholder: 'メイ', class: 'form-control'
+          /メールアドレス
+        .form-row
+          .form-group.col-sm
+            = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'abc1234@example.com'
+          /郵便番号
+        .form-row
+          .form-group.col-sm
+            = f.label :postal_code,'郵便番号'
+            = f.text_field :postal_code,class: 'form-control', placeholder: '123-1234'
+          /住所
+        .form-row
+          .form-group.col-sm
+            = f.label :address,'住所'
+            = f.text_field :address, class: 'form-control'
+          /電話番号
+        .form-row
+          .form-group.col-sm
+            = f.label :phone_number,'電話番号'
+            = f.text_field :phone_number, class:'form-control'
+        .form-row
+          .form-group.col-sm-10
+            = f.label :introduction,'プロフィール'
+            = f.text_area :introduction, class: 'form-control',size:'50x10'
+        .row
+          .actions.col-sm-12.text-center.mt-3
+            = f.submit "更新", class: 'mt-1 btn btn-secondary btn-lg btn-block'

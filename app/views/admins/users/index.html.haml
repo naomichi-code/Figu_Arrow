@@ -26,6 +26,6 @@
               %td= "フォロワー数：#{user.followed.count}"
               %td= user.created_at.strftime('%Y/%m/%d %H:%M')
               %td
-                =link_to 'アカウント詳細', user_path(user),class: 'btn btn-sm btn-success'
+                =link_to 'アカウント詳細', admins_user_path(user),class: 'btn btn-sm btn-success'
               %td
                 = link_to '強制退会', admins_user_path(user),method: :delete, data: {confirm:"#{user.account_name}様を本当に退会させますか？}"}, class: 'btn btn-sm btn-danger'

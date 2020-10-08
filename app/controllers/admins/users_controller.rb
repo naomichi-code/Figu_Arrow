@@ -1,6 +1,6 @@
 class Admins::UsersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :destroy, :edit, :update]
 
   def index
     @users = User.page(params[:page]).per(20).order(created_at: :desc)
@@ -10,8 +10,19 @@ class Admins::UsersController < ApplicationController
 
   def show
   end
+
+  def edit
+  end
+
+  def update
+      if @user.update(user_params)
+        redirect_to admins_user_path(@user)
+      else
+        render 'edit'
+      end
+  end
+
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to admins_users_path
   end
@@ -21,4 +32,18 @@ class Admins::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def user_params
+    params.require(:user).permit(
+        :account_name,
+        :last_name,
+        :first_name,
+        :last_name_kana,
+        :first_name_kana,
+        :email,
+        :postal_code,
+        :address,
+        :phone_number,
+        :introduction,
+    )
+  end
 end
