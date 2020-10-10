@@ -5,9 +5,9 @@
         ユーザー確認画面
       .border.my-5{style: "width: 30%;"}
         %h4
-          = "本日の登録者数 #{@user_count_day.count}"
+          = "本日の登録者数： #{@user_count_day.count}"
         %h4
-          = "全ての登録者数 #{@user_count_all.count}"
+          = "全ての登録者数 ：#{@user_count_all.count}"
   .row
     .col
       %table.table
@@ -29,3 +29,4 @@
                 =link_to 'アカウント詳細', admins_user_path(user),class: 'btn btn-sm btn-success'
               %td
                 = link_to '強制退会', admins_user_path(user),method: :delete, data: {confirm:"#{user.account_name}様を本当に退会させますか？}"}, class: 'btn btn-sm btn-danger'
+      = paginate @users

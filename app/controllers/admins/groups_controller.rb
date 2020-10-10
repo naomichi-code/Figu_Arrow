@@ -13,6 +13,12 @@ class Admins::GroupsController < ApplicationController
     redirect_to admins_groups_path
   end
 
+  def show
+    @chats = @group.group_chats.page(params[:page]).per(20).order(created_at: :desc)
+    @chat_count_day = @chats.where(created_at: Time.zone.now.all_day)
+    @chat_count_all = @group.group_chats.all
+  end
+
 
   private
   def set_group

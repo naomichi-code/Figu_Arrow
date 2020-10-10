@@ -1,0 +1,34 @@
+.container
+  .row.mt-3
+    .col
+      %h3.text-light.bg-secondary.d-inline-block
+        トークルーム詳細
+      .border.my-5{style: "width: 30%;"}
+        %h4
+          = "本日コメント数： #{@chat_count_day.count}"
+        %h4
+          = "全てのコメント数： #{@chat_count_all.count}"
+      .border.my-5
+        %h4
+          = "ルームタイトル： #{@group.room_title}"
+        %h4
+          = "ルーム本文： #{@group.body}"
+  .row
+    .col
+      %table.table
+        %thead
+          %tr
+            %th アカウント名
+            %th コメント本文
+            %th コメント投稿日　
+            %th
+            %th{:colspan => "2"}
+        %tbody
+          - @chats.each do |chat|
+            %tr
+              %td= chat.user.account_name
+              %td= chat.message
+              %td= chat.created_at.strftime('%Y/%m/%d %H:%M')
+              %td
+                = link_to 'コメント消去', admins_group_chat_path(chat),method: :delete, data: {confirm:"本当に削除しますか"}, class: 'btn btn-sm btn-danger'
+      = paginate @chats

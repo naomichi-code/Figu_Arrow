@@ -3,11 +3,11 @@
     .col
       %h3.text-light.bg-secondary.d-inline-block
         トークルーム確認画面
-      .border.my-5{style: "width: 30%;"}
+      .border.my-5{style: "width: 40%;"}
         %h4
-          = "本日作成のトークルーム数 #{@group_count_day.count}"
+          = "本日作成のトークルーム数： #{@group_count_day.count}"
         %h4
-          = "全てのトークルーム数 #{@group_count_all.count}"
+          = "全てのトークルーム数： #{@group_count_all.count}"
   .row
     .col
       %table.table
@@ -29,3 +29,4 @@
                 =link_to 'ルーム詳細', admins_group_path(group),class: 'btn btn-sm btn-success'
               %td
                 = link_to 'ルーム削除', admins_group_path(group),method: :delete, data: {confirm:"#{group.room_title}を本当に削除しますか？"}, class: 'btn btn-sm btn-danger'
+      = paginate @groups

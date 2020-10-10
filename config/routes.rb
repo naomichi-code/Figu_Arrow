@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top', as: 'top'
     resources :users
     resources :posts, only: [:index, :destroy]
-    resources :groups, only: [:index, :destroy]
+    resources :groups, only: [:show, :index, :destroy]
+    resources :group_chats, only: [:destroy]
     resources :requirements, only: [:index, :destroy]
     resources :inqulies, only: [:index, :show]
   end

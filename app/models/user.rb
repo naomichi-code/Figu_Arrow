@@ -5,17 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :image_icon
-  has_many :posts
-  has_many :post_comments
-  has_many :arrows
-  has_many :comments
-  has_many :user_rooms
+  has_many :posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :arrows, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :user_rooms, dependent: :destroy
+  has_many :rooms, dependent: :destroy
   has_many :rooms, through: :user_rooms
-  has_many :chats
-  has_many :group_rooms
-  has_many :group
+  has_many :chats, dependent: :destroy
+  has_many :group_rooms, dependent: :destroy
+  has_many :group, dependent: :destroy
   has_many :groups, through: :group_rooms
-  has_many :group_chats
+  has_many :group_chats, dependent: :destroy
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #followerフォローする人を取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #followedフォローされる人を取得
   has_many :following_user, through: :follower, source: :followed #フォローしている人[follower]の中から自分にフォローされている人[followed]を探す（自分がフォローしている人）取得

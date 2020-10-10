@@ -5,9 +5,9 @@
         投稿確認画面
       .border.my-5{style: "width: 30%;"}
         %h4
-          = "本日の投稿数 #{@post_count_day.count}"
+          = "本日の投稿数： #{@post_count_day.count}"
         %h4
-          = "全ての投稿数 #{@post_count_all.count}"
+          = "全ての投稿数： #{@post_count_all.count}"
   .row
     .col
       %table.table
@@ -32,3 +32,4 @@
                 =link_to '投稿詳細', post_path(post),data:{"turbolinks" => false},class: 'btn btn-sm btn-success'
               %td
                 = link_to '投稿削除', admins_post_path(post),method: :delete, data: {confirm:"#{post.title}を本当に削除しますか？"}, class: 'btn btn-sm btn-danger'
+      = paginate @posts
