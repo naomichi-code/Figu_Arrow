@@ -26,7 +26,7 @@ before_action :configure_sign_in_params, only: [:create]
   end
 
   def after_sign_in_path_for(resource)
-    root_path
+    admins_top_path
   end
 
   def after_sigh_out_path_for(resource)

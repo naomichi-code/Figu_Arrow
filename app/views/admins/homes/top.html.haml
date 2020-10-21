@@ -1,0 +1,34 @@
+.container
+  .row.my-5.justify-content-md-center
+    .col-5.border
+      %h3.mb-3
+        アカウント
+        %h4
+          = "本日の登録者数： #{@user_count_day.count}"
+        %h4
+          = "全ての登録者数 ：#{@user_count_all.count}"
+    .col-5.border.ml-5
+      %h3.mb-3
+        トークルーム
+        %h4
+          = "本日作成のトークルーム数： #{@group_count_day.count}"
+        %h4
+          = "全てのトークルーム数： #{@group_count_all.count}"
+    .col-5.mt-5.border
+      %h3.mb-3
+        投稿
+        %h4
+          = "本日の投稿数： #{@post_count_day.count}"
+        %h4
+          = "全ての投稿数： #{@post_count_all.count}"
+    .col-5.mt-5.border.ml-5
+      %h3.mb-3
+        譲渡・交換
+        %h4
+          = "本日作成の譲渡投稿数： #{@give_count_day.count}"
+        %h4
+          = "本日作成の交換投稿数： #{@exc_count_day.count}"
+        %h4.mt-3
+          = "全ての譲渡投稿数： #{@give_count_all.count}"
+        %h4
+          = "全ての交換投稿数： #{@exc_count_all.count}"
