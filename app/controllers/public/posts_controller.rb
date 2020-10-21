@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_user!,except: :index
+  before_action :authenticate_user!,except: :index,unless: :admin_signed_in?
   before_action :set_post, only:[:show, :edit, :update, :destroy]
   before_action :screen_user, only: [:edit, :update]
 
@@ -43,9 +43,8 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    user = post.user.id
-    post.destroy
+    user = @post.user.id
+    @post.destroy
     redirect_to user_path(user)
   end
 

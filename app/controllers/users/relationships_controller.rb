@@ -1,5 +1,5 @@
 class Users::RelationshipsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,unless: :admin_signed_in?
   def create
     current_user.follow(params[:user_id])
     redirect_to request.referer

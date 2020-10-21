@@ -15,8 +15,10 @@
         .row
           .col-sm-6
             - if admin_signed_in?
-              = link_to root_path do
+              = link_to admins_top_path do
                 = image_tag 'figu_arrow_logo.png', size: "350x250"
+              %h2
+                管理者画面
             - else
               = link_to root_path do
                 = image_tag 'figu_arrow_logo.png', size: "350x250"
@@ -34,7 +36,7 @@
           -#ナビゲーションバー
         .row
           .col
-            - if user_signed_in?
+            - if user_signed_in? || admin_signed_in?
               = render "layouts/navber"
             -else
               = render "layouts/navber"

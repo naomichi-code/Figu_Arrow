@@ -7,10 +7,10 @@
         = image_tag @image_icon_url,size:'200',class:'shadow-lg mb-2 bg-white.rounded'
       .col
         -#フォローボタン
-        - unless current_user == @user
+        - unless (current_user == @user) || admin_signed_in?
           = render "users/relationships/follow_btn", user: @user
         - else
-          = link_to ' アカウント詳細へ', edit_user_path(@user.id), class: 'btn btn-lg btn-info mt-2'
+          = link_to ' アカウント編集へ', edit_user_path(@user.id), class: 'btn btn-lg btn-info mt-2'
 
     -#プロフィール
     .col
@@ -36,9 +36,54 @@
     .col-md-2.text-center.border-left.border-right
       %h4
         = link_to @user.follower.count, user_followers_path(@user.id),class: 'text-dark'
-  .row
-    -#投稿ボタン
-    = render 'layouts/post_btn'
+  - if current_user == @user
+    .row.mt-5.p-2.justify-content-center
+      .col.col-8.bg-light.border.shadow-sm.mb-2b.rounded
+        .row.border
+          .col.col-3
+            %p アカウント名
+          .col.bg-white
+            = @user.account_name
+        .row.border
+          .col.col-3
+            %p 性
+          .col.bg-white
+            = @user.last_name
+        .row.border
+          .col.col-3
+            %p 名
+          .col.bg-white
+            = @user.first_name
+        .row.border
+          .col.col-3
+            %p 性(カナ)
+          .col.bg-white
+            = @user.last_name_kana
+        .row.border
+          .col.col-3
+            %p 名(カナ)
+          .col.bg-white
+            = @user.first_name_kana
+        .row.border
+          .col.col-3
+            %p 郵便番号
+          .col.bg-white
+            = @user.postal_code
+        .row.border
+          .col.col-3
+            %p 住所
+          .col.bg-white
+            = @user.address
+        .row.border
+          .col.col-3
+            %p 電話番号
+          .col.bg-white
+            = @user.phone_number
+        .row.border
+          .col.col-3
+            %p プロフィール
+          .col.bg-white
+            = @user.introduction
 .container-fulid{style:'margin-top:100px;background-color:#EEEEEE;'}
   .row
     .col.text-center
@@ -47,3 +92,6 @@
   =render 'public/posts/index', posts: @posts
   = paginate @posts
 
+  .row
+    -#投稿ボタン
+    = render 'layouts/post_btn'

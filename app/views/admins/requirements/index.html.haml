@@ -1,0 +1,67 @@
+.container
+  .row.mt-3
+    .col
+      %h3.text-light.bg-secondary.d-inline-block
+        トークルーム確認画面
+      .border.my-5{style: "width: 40%;"}
+        %h4
+          = "本日作成の譲渡投稿数： #{@give_count_day.count}"
+        %h4
+          = "本日作成の交換投稿数： #{@exc_count_day.count}"
+        %h4
+          = "全ての譲渡投稿数： #{@give_count_all.count}"
+        %h4
+          = "全ての交換投稿数： #{@exc_count_all.count}"
+  .row.mt-3
+    .col
+      %h3.text-light.bg-secondary.d-inline-block
+        譲渡
+  .row
+    .col
+      %table.table
+        %thead
+          %tr
+            %th 投稿名
+            %th
+            %th
+            %th ルーム作成日
+            %th{:colspan => "2"}
+        %tbody
+          - @gives.each do |give|
+            %tr
+              %td= give.title.truncate(20)
+              %td= give.requirement.truncate(20)
+              %td
+              %td= give.created_at.strftime('%Y/%m/%d %H:%M')
+              %td
+                =link_to '投稿詳細へ', post_path(give),data:{"turbolinks" => false}, class: 'btn btn-sm btn-success'
+              %td
+                = link_to '投稿削除', admins_post_path(give),method: :delete, data: {confirm:"#{give.title}を本当に削除しますか？"}, class: 'btn btn-sm btn-danger'
+      = paginate @gives
+
+  .row.mt-3
+    .col
+      %h3.text-light.bg-secondary.d-inline-block
+        交換
+  .row
+    .col
+      %table.table
+        %thead
+          %tr
+            %th ルーム名
+            %th 本文
+            %th
+            %th ルーム作成日
+            %th{:colspan => "2"}
+        %tbody
+          - @exchanges.each do |exc|
+            %tr
+              %td= exc.title.truncate(20)
+              %td= exc.requirement.truncate(20)
+              %td
+              %td= exc.created_at.strftime('%Y/%m/%d %H:%M')
+              %td
+                =link_to '投稿詳細へ', post_path(exc),data:{"turbolinks" => false}, class: 'btn btn-sm btn-success'
+              %td
+                = link_to '投稿削除', post_path(exc),method: :delete, data: {confirm:"#{exc.title}を本当に削除しますか？"}, class: 'btn btn-sm btn-danger'
+      = paginate @exchanges

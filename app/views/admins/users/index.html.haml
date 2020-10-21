@@ -1,0 +1,32 @@
+.container
+  .row.mt-3
+    .col
+      %h3.text-light.bg-secondary.d-inline-block
+        ユーザー確認画面
+      .border.my-5{style: "width: 30%;"}
+        %h4
+          = "本日の登録者数： #{@user_count_day.count}"
+        %h4
+          = "全ての登録者数 ：#{@user_count_all.count}"
+  .row
+    .col
+      %table.table
+        %thead
+          %tr
+            %th アカウント名
+            %th
+            %th
+            %th アカウント作成日
+            %th{:colspan => "2"}
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td= user.account_name
+              %td= "フォロー数：#{user.follower.count}"
+              %td= "フォロワー数：#{user.followed.count}"
+              %td= user.created_at.strftime('%Y/%m/%d %H:%M')
+              %td
+                =link_to 'アカウント詳細', admins_user_path(user),class: 'btn btn-sm btn-success'
+              %td
+                = link_to '強制退会', admins_user_path(user),method: :delete, data: {confirm:"#{user.account_name}様を本当に退会させますか？}"}, class: 'btn btn-sm btn-danger'
+      = paginate @users

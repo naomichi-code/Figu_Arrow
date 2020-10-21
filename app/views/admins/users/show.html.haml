@@ -1,0 +1,55 @@
+.container
+  .row
+    .col.offset-2
+      %h3.mt-3.text-light.bg-secondary.d-inline-block
+        アカウント詳細画面
+  .row.mt-5.p-2.justify-content-center
+    .col.col-8.bg-light.border
+      .row.border
+        .col.col-3
+          %p アカウント名
+        .col.bg-white
+          = @user.account_name
+      .row.border
+        .col.col-3
+          %p 性
+        .col.bg-white
+          = @user.last_name
+      .row.border
+        .col.col-3
+          %p 名
+        .col.bg-white
+          = @user.first_name
+      .row.border
+        .col.col-3
+          %p 性(カナ)
+        .col.bg-white
+          = @user.last_name_kana
+      .row.border
+        .col.col-3
+          %p 名(カナ)
+        .col.bg-white
+          = @user.first_name_kana
+      .row.border
+        .col.col-3
+          %p 郵便番号
+        .col.bg-white
+          = @user.postal_code
+      .row.border
+        .col.col-3
+          %p 住所
+        .col.bg-white
+          = @user.address
+      .row.border
+        .col.col-3
+          %p 電話番号
+        .col.bg-white
+          = @user.phone_number
+      .row.border
+        .col.col-3
+          %p プロフィール
+        .col.bg-white
+          = @user.introduction
+  .row.mt-3
+    .col.text-center
+      = link_to 'アカウント編集へ', edit_admins_user_path(@user),class: "btn btn-lg btn-secondary"
