@@ -1,0 +1,26 @@
+.container
+  .row.justify-content-center
+    .col-6.shadow-lg.p-3.mb-5.bg-white.rounded.my-5
+      %h2.my-5.text-center
+        お問い合わせ内容確認画面
+      %table.table.border.table-borderless
+        %tr
+          %th 氏名：
+          %td= "#{@inqulies.name}"
+        %tr
+          %th メールアドレス：
+          %td= "#{@inqulies.email}"
+        %tr
+          %th お問い合わせ内容：
+          %td= "#{@inqulies.body}"
+
+      = form_with(model: @inqulies, url: back_inqulies_path, local: true) do |f|
+        = f.hidden_field :name
+        = f.hidden_field :email
+        = f.hidden_field :body
+        = f.submit '入力画面へ戻る', style: 'width: 100%;',class: 'btn btn-secondary'
+      = form_with(model: @inqulies, url: new_inquly_path, local: true) do |f|
+        = f.hidden_field :name
+        = f.hidden_field :email
+        = f.hidden_field :body
+        = f.submit '送信する', style: 'width: 100%;', class: 'mt-3 btn btn-secondary'

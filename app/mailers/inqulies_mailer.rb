@@ -1,0 +1,2 @@
+class InquliesMailer < ApplicationMailer
+end

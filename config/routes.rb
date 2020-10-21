@@ -43,7 +43,13 @@ Rails.application.routes.draw do
       resources :item_photes, only: [:create, :update, :destroy]
     end
     resources :tags, only: [:create, :index, :show]
-    resources :inqulies, only: [:create, :index, :show]
+    resources :inqulies, only: [:create, :new] do
+      collection do
+        post :confirm
+        post :new, path: 'new', action: 'back', as: 'back'
+        get :thanks
+      end
+    end
     resources :requirements, only: [:index]
     resources :group_chats, only: [:create, :destroy]
     resources :groups
