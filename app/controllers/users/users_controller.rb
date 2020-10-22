@@ -25,8 +25,12 @@ class Users::UsersController < ApplicationController
       sleep(3)
       redirect_to user_path(@user)
     else
-      @image_icon_url = Settings.image_icon_url + @user.image_icon_id + "-thumbnail."
-        render 'edit'
+      if @user.image_icon.nil?
+        @image_icon_url = 'no-image-icon.jpg'
+      else
+        @image_icon_url = Settings.image_icon_url + @user.image_icon_id + "-thumbnail."
+      end
+      render 'edit'
     end
   end
 

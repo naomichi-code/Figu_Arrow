@@ -1,12 +1,16 @@
 - post_comments.each do |post_comment|
   %table.table.table-borderless.bg-white
     %tr
-      %td{style: "width: 20%;"}
+      %td.text-center{style: "width: 20%;"}
         = link_to user_path(post_comment.user)  do
-          - photo = Settings.image_icon_url + post_comment.user.image_icon_id + '-thumbnail.'
-          =image_tag photo, size: '50x50',class: 'border'
-          %br
-        %span.ml-3{style:'font-size:2px;'}= post_comment.user.account_name
+          -if post_comment.user.image_icon.nil?
+            -photo = 'no-image-icon.jpg'
+            =image_tag photo, size: '50x50',class: 'border'
+          -else
+            - photo = Settings.image_icon_url + post_comment.user.image_icon_id + '-thumbnail.'
+            =image_tag photo, size: '50x50',class: 'shadow-lg bg-white.rounded'
+        %br
+        %span{style:'font-size:5px;'}= post_comment.user.account_name
       %td
         =post_comment.comment
       %td{style: "width: 30%;"}
