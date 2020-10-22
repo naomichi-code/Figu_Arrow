@@ -3,8 +3,8 @@ class Admins::InquliesController < ApplicationController
 
   def index
     @inqulies = Inquly.page(params[:page]).per(20).order(created_at: :desc)
-    @inqulies_count_day = User.where(created_at: Time.zone.now.all_day)
-    @inqulies_count_all = User.all
+    @inqulies_count_day = Inquly.where(created_at: Time.zone.now.all_day)
+    @inqulies_count_all = Inquly.all
   end
   def show
     @inqulies = Inquly.find(params[:id])
