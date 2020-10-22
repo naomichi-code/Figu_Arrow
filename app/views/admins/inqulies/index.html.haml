@@ -1,0 +1,32 @@
+.container
+  .row.mt-3
+    .col
+      %h3.text-light.bg-secondary.d-inline-block
+        お問い合わせ確認一覧画面
+      .border.my-5{style: "width: 40%;"}
+        %h4
+          = "本日お問い合わせ数： #{@inqulies_count_day.count}"
+        %h4
+          = "全てのお問い合わせ数： #{@inqulies_count_all.count}"
+  .row
+    .col
+      %table.table.table-hover
+        %thead
+          %tr
+            %th 名前
+            %th お問い合わせ内容
+            %th
+            %th お問い合わせ日
+            %th{colspan:(2)}
+        %tbody
+          - @inqulies.each do |inquly|
+            %tr
+              %td= inquly.name
+              %td= inquly.body.truncate(20)
+              %td
+              %td= inquly.created_at.strftime('%Y/%m/%d %H:%M')
+              %td
+                =link_to 'お問い合わせ詳細', admins_inquly_path(inquly),class: 'btn btn-sm btn-success'
+              %td
+                = link_to '削除', admins_inquly_path(inquly),method: :delete, data: {confirm:"を本当に削除しますか？"}, class: 'btn btn-sm btn-danger'
+      = paginate @inqulies

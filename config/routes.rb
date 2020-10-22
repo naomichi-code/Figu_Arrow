@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :groups, only: [:show, :index, :destroy]
     resources :group_chats, only: [:destroy]
     resources :requirements, only: [:index, :destroy]
-    resources :inqulies, only: [:index, :show]
+    resources :inqulies, only: [:index, :show, :destroy]
   end
   #ユーザー
   devise_for :users, controllers:{

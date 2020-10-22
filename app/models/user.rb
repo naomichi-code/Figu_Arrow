@@ -28,9 +28,9 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true
   validates :first_name, presence: true
   validates :first_name_kana, presence: true
-  validates :postal_code, presence: true
+  validates :postal_code, presence: true,format: {with: /\A\d{3}[-]\d{4}\z/}
   validates :address, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, format: {with: /\A\d{2,5}-\d{1,4}-\d{4}\z/}
 
 
 
@@ -58,10 +58,9 @@ class User < ApplicationRecord
       last_name_kana: 'ゆーざー',
       postal_code: '123-1234',
       address: 'guestadress',
-      phone_number: '12312341234'
+      phone_number: '123-1234-1234'
       ) do |user|
       user.password = SecureRandom.urlsafe_base64
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
 end

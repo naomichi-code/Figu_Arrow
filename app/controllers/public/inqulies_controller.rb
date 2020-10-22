@@ -17,7 +17,7 @@ class Public::InquliesController < ApplicationController
   def create
     @inqulies = Inquly.new(inqulies_params)
     @inqulies.save
-    Inqulies.Mailer.inqulies_mail(@inqulies).deliver
+    InquliesMailer.inqulies_mail(@inqulies).deliver
     redirect_to thanks_inqulies_path
   end
 

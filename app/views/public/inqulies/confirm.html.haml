@@ -1,7 +1,7 @@
 .container
   .row.justify-content-center
     .col-6.shadow-lg.p-3.mb-5.bg-white.rounded.my-5
-      %h2.my-5.text-center
+      %h3.my-5.text-center
         お問い合わせ内容確認画面
       %table.table.border.table-borderless
         %tr
@@ -12,14 +12,14 @@
           %td= "#{@inqulies.email}"
         %tr
           %th お問い合わせ内容：
-          %td= "#{@inqulies.body}"
+          %td= simple_format(@inqulies.body)
 
       = form_with(model: @inqulies, url: back_inqulies_path, local: true) do |f|
         = f.hidden_field :name
         = f.hidden_field :email
         = f.hidden_field :body
         = f.submit '入力画面へ戻る', style: 'width: 100%;',class: 'btn btn-secondary'
-      = form_with(model: @inqulies, url: new_inquly_path, local: true) do |f|
+      = form_with(model: @inqulies, url: inqulies_path, local: true) do |f|
         = f.hidden_field :name
         = f.hidden_field :email
         = f.hidden_field :body

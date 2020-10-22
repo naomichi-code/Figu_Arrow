@@ -32,6 +32,11 @@
           = @user.first_name_kana
       .row.border
         .col.col-3
+          %p メールアドレス
+        .col.bg-white
+          = @user.email
+      .row.border
+        .col.col-3
           %p 郵便番号
         .col.bg-white
           = @user.postal_code
@@ -49,7 +54,7 @@
         .col.col-3
           %p プロフィール
         .col.bg-white
-          = @user.introduction
+          = simple_format(@user.introduction)
   .row.mt-3
     .col.text-center
       = link_to 'アカウント編集へ', edit_admins_user_path(@user),class: "btn btn-lg btn-secondary"
