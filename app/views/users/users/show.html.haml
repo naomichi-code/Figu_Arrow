@@ -66,6 +66,11 @@
             = @user.first_name_kana
         .row.border
           .col.col-3
+            %p メールアドレス
+          .col.bg-white
+            = @user.email
+        .row.border
+          .col.col-3
             %p 郵便番号
           .col.bg-white
             = @user.postal_code
@@ -79,11 +84,7 @@
             %p 電話番号
           .col.bg-white
             = @user.phone_number
-        .row.border
-          .col.col-3
-            %p プロフィール
-          .col.bg-white
-            = @user.introduction
+
 .container-fulid{style:'margin-top:100px;background-color:#EEEEEE;'}
   .row
     .col.text-center

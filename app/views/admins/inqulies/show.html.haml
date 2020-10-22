@@ -1,0 +1,25 @@
+.container
+  .row
+    .col.offset-2
+      %h3.mt-3.text-light.bg-secondary.d-inline-block
+        お問い合わせ詳細画面
+  .row.mt-5.p-2.justify-content-center
+    .col.col-8.bg-light.border
+      .row.border
+        .col.col-3
+          %p アカウント名
+        .col.bg-white
+          = @inqulies.name
+      .row.border
+        .col.col-3
+          %p メールアドレス
+        .col.bg-white
+          =@inqulies.email
+      .row.border
+        .col.col-3
+          %p お問い合わせ内容
+        .col.bg-white
+          = simple_format(@inqulies.body)
+  .row.mt-3
+    .col.text-center
+      = link_to '一覧へ戻る', admins_inqulies_path,class: "btn btn-lg btn-secondary"

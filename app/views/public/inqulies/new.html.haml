@@ -1,0 +1,29 @@
+.container
+  .row.justify-content-center
+    .col-6.mt-5.shadow-lg.p-3.mb-5.bg-white.rounded
+      = render 'layouts/errors', obj: @inqulies
+      %h3.my-5.text-center
+        お問い合わせフォーム
+      = form_with(model: @inqulies, url: confirm_inqulies_path, local: true) do |f|
+        %table.table.table-borderless.border
+          %tr
+            %td
+              = f.label :name,'名前'
+              （必須）
+            %td.form-group
+              = f.text_field :name,placeholder:'玩具　太郎',class: 'form-control'
+          %tr
+            %td
+              = f.label :email,'メールアドレス'
+              （必須）
+            %td.form-group
+              = f.text_field :email,placeholder:'abc1234@example.com', class: 'form-control'
+          %tr.form-group
+            %td
+              = f.label :body,'お問い合わせ内容'
+              （必須）
+            %td
+              = f.text_area :body, placeholder: '本文' , class: 'form-control'
+          %tr.form-group{style:'width: 100%;'}
+            %td.text-center{colspan:'2'}
+              = f.submit "送信",class: 'btn btn-secondary btn-lg',style:'width: 100%;'

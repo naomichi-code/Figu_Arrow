@@ -42,6 +42,7 @@
               = render "layouts/navber"
               .guest-btn.text-right
                 = link_to 'ゲストログイン', users_guest_sign_in_path, method: :POST, class: 'badge badge-pill badge-secondary'
+                = link_to '管理者ログイン', admin_session_path, method: :POST, class: 'badge badge-pill badge-secondary'
         .row
           %p#notice
             = notice
@@ -62,6 +63,6 @@
               %li
                 = link_to"サイト概要",about_path,style: "color: white;"
               %li
-                = link_to"お問い合わせ",about_path,style: "color: white;"
+                = link_to"お問い合わせ",new_inquly_path,style: "color: white;"
               %li
 

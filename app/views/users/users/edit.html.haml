@@ -24,7 +24,7 @@
         .form-row.mt-4
           .form-group.col
             = f.label :account_name,'アカウント名'
-            = f.text_field :account_name, autofocus: true, class: 'form-control'
+            = f.text_field :account_name, autofocus: true, class: 'form-control', placeholder: '10文字まで'
             /氏名
         %p.mb-1 氏名
         .form-row
@@ -47,7 +47,7 @@
         .form-row
           .form-group.col-sm
             = f.label :postal_code,'郵便番号'
-            = f.text_field :postal_code,class: 'form-control', placeholder: '123-1234'
+            = f.text_field :postal_code,class: 'form-control', placeholder: 'ハイフンあり'
           /住所
         .form-row
           .form-group.col-sm
@@ -57,7 +57,7 @@
         .form-row
           .form-group.col-sm
             = f.label :phone_number,'電話番号'
-            = f.text_field :phone_number, class:'form-control'
+            = f.text_field :phone_number, class:'form-control', placeholder: 'ハイフンあり'
         .row
           .actions.col-sm-12.text-center.mt-3
             = f.submit "更新", class: 'mt-1 btn btn-secondary btn-lg btn-block'

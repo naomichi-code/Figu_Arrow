@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :groups, only: [:show, :index, :destroy]
     resources :group_chats, only: [:destroy]
     resources :requirements, only: [:index, :destroy]
-    resources :inqulies, only: [:index, :show]
+    resources :inqulies, only: [:index, :show, :destroy]
   end
   #ユーザー
   devise_for :users, controllers:{
@@ -43,7 +43,13 @@ Rails.application.routes.draw do
       resources :item_photes, only: [:create, :update, :destroy]
     end
     resources :tags, only: [:create, :index, :show]
-    resources :inqulies, only: [:create, :index, :show]
+    resources :inqulies, only: [:create, :new] do
+      collection do
+        post :confirm
+        post :new, path: 'new', action: 'back', as: 'back'
+        get :thanks
+      end
+    end
     resources :requirements, only: [:index]
     resources :group_chats, only: [:create, :destroy]
     resources :groups

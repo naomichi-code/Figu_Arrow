@@ -20,6 +20,8 @@
               = submit_tag '検索',class: 'btn btn-sm btn-outline-light'
       %ul.navbar-nav.ml-auto{style: 'font-size:0.8em;'}
         %li.nav-item.active
+          = link_to 'お問い合わせ', admins_inqulies_path, class: 'nav-link'
+        %li.nav-item.active
           = link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link', style: 'border-right: solid 0.1em silver;'
   -#ユーザーログイン
 - elsif user_signed_in?
