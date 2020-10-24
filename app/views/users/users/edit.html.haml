@@ -2,7 +2,6 @@
 %h3.text-center.p-5{style:'background-color:#EEEEEE;'} #{@user.account_name}さんのマイページ詳細
 .container
   = form_with(model: @user, local: true) do |f|
-    = render 'layouts/errors', obj: @user
     .row
       .col.offset-1
     .row.mt-5{style:'height:300px'}
@@ -21,6 +20,7 @@
             = f.text_area :introduction, class: 'form-control',size:'50x10'
     .form-row
       .col-5.offset-5
+        = render 'layouts/errors', obj: @user
         .form-row.mt-4
           .form-group.col
             = f.label :account_name,'アカウント名'

@@ -5,6 +5,6 @@ class Group < ApplicationRecord
   attachment :thumbnail
   validates :room_title, presence: true
   validates :body, presence: true
-  validates :thumbnail, presence: true
+  validates :thumbnail, presence: {message: "を選択してください"}
 
 end

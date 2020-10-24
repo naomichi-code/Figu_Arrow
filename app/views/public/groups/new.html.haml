@@ -1,9 +1,10 @@
 - breadcrumb :new_group
 .container-fuild{style:'background-color:#EEEEEE;height:50px'}
 .containetr
+  .text-center
+    = render 'layouts/errors', obj: @group
   .row.justify-content-center.my-5
     =form_with(model: @group, local: true)  do |f|
-      = render 'layouts/errors', obj: @group
       .col-12.shadow-lg.p-3.mb-5.bg-white.rounded
         .row.text-center
           .col.mb-5

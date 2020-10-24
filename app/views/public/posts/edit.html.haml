@@ -2,8 +2,8 @@
 .container
   .row
   = form_with(model: @post, local: true) do |f|
-    = render 'layouts/errors', obj: @post
     .col-6.mx-auto.mt-5.shadow-lg.mb-2.bg-white.rounded
+      = render 'layouts/errors', obj: @post
       .form-row
         %p 現在の投稿画像
         .fotorama{data: {allowfullscreen: "true",nav: "thumbs"}}

@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+      group: トークルーム
+      inquly: お問い合わせ
+    attributes:
+      user:
+        id: ID
+        password: パスワード
+        email: メールアドレス
+        account_name: アカウント名
+        first_name: 名前
+        last_name: 苗字
+        first_name_kana: 名前（カナ）
+        last_name_kana: 苗字（カナ）
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+        introduction: プロフィール文
+      post:
+        id: ID
+        title: 投稿タイトル
+        body: レビュー内容
+        requirement: 譲渡・交換：条件
+        item_photos_photos: 画像
+      post/tags:
+        title_tag: 作品名
+        brand_tag: ブランド名
+        chara_tag: キャラクター名
+      group:
+        room_title: ルーム名
+        body: 本文
+        thumbnail: サムネイル
+      inquly:
+        name: 名前
+        email: メールアドレス
+        body: お問い合わせ内容
