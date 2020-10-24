@@ -1,4 +1,5 @@
 - post_comments.each do |post_comment|
+  = render 'layouts/errors', obj: post_comment
   %table.table.table-borderless.bg-white
     %tr
       %td.text-center{style: "width: 20%;"}
@@ -15,5 +16,5 @@
         =post_comment.comment
       %td{style: "width: 30%;"}
         - if post_comment.user == current_user
-          = link_to 'コメント削除', post_post_comments_path(post_comment),{class: 'btn-sm btn-danger', method: :delete, remote: true}
+          = link_to 'コメント削除', post_post_comments_path(post_comment,post_comment.post_id),{class: 'btn-sm btn-danger', method: :delete, remote: true}
     %tr

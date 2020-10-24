@@ -72,6 +72,7 @@ end
   gem 'kaminari'
   gem 'refile-s3'
   gem 'pry-rails'
+  gem 'rails-i18n'
 
   gem 'capistrano'
   gem 'capistrano-rails'
