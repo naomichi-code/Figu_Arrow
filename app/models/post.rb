@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: {maximum: 300}
   validates :requirement, length: {maximum: 300}
   MAX_ITEM_PHOTOS_COUNT = 5
-  validates :item_photos_photos, presence: true,length: {
+  validates :item_photos_photos, presence: {message: "を選択してください"},length: {
     maximum:  MAX_ITEM_PHOTOS_COUNT,
     too_long: "は#{MAX_ITEM_PHOTOS_COUNT}枚までです"
   }
